@@ -717,6 +717,245 @@
         <Background Type="CT_RAW" Source="FF0F1C2E" />
         <Foreground Type="CT_RAW" Source="FF5FD7E6" />
       </Color>
+      <Color Name="OverviewMarginCollapsedRegion">
+        <Background Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="syntax error">
+        <Foreground Type="CT_RAW" Source="FFF2777A" />
+      </Color>
+      <Color Name="compiler error">
+        <Foreground Type="CT_RAW" Source="FFF2777A" />
+      </Color>
+      <Color Name="other error">
+        <Foreground Type="CT_RAW" Source="FFB9A3F0" />
+      </Color>
+      <Color Name="compiler warning">
+        <Foreground Type="CT_RAW" Source="FFF0C674" />
+      </Color>
+      <Color Name="hinted suggestion">
+        <Foreground Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="MarkerFormatDefinition/FindHighlight">
+        <Background Type="CT_RAW" Source="FF534F43" />
+        <Foreground Type="CT_RAW" Source="00000000" />
+      </Color>
+      <Color Name="MarkerFormatDefinition/ScopeHighlight">
+        <Background Type="CT_RAW" Source="FF16263B" />
+      </Color>
+      <Color Name="MarkerFormatDefinition/SelectedTextInScrollBar">
+        <Background Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="MarkerFormatDefinition/BookmarkInScrollBar">
+        <Background Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="MarkerFormatDefinition/BreakpointInScrollBar">
+        <Background Type="CT_RAW" Source="FFF2777A" />
+      </Color>
+      <Color Name="Matched Selected Text">
+        <Background Type="CT_RAW" Source="FF1C3048" />
+        <Foreground Type="CT_RAW" Source="00000000" />
+      </Color>
+      <Color Name="Track Changes before save">
+        <Background Type="CT_RAW" Source="FFF0C674" />
+      </Color>
+      <Color Name="Track Changes after save">
+        <Background Type="CT_RAW" Source="FF7EE8A8" />
+      </Color>
+      <Color Name="Track reverted changes">
+        <Background Type="CT_RAW" Source="FF7CC4F8" />
+      </Color>
+      <Color Name="deltadiff.remove.line">
+        <Background Type="CT_RAW" Source="FF2A2737" />
+      </Color>
+      <Color Name="deltadiff.add.line">
+        <Background Type="CT_RAW" Source="FF1C343D" />
+      </Color>
+      <Color Name="deltadiff.remove.word">
+        <Background Type="CT_RAW" Source="FF533745" />
+        <Foreground Type="CT_RAW" Source="FFF2777A" />
+      </Color>
+      <Color Name="deltadiff.add.word">
+        <Background Type="CT_RAW" Source="FF305953" />
+        <Foreground Type="CT_RAW" Source="FF7EE8A8" />
+      </Color>
+      <Color Name="deltadiff.overview.color">
+        <Background Type="CT_RAW" Source="FF16263B" />
+        <Foreground Type="CT_RAW" Source="FF2A4560" />
+      </Color>
+      <Color Name="Current Statement">
+        <Background Type="CT_RAW" Source="FF5E5847" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Current Statement (new context)">
+        <Background Type="CT_RAW" Source="FF505551" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Current Statement (historical mode)">
+        <Background Type="CT_RAW" Source="FF305953" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="RoslynActiveStatementTag">
+        <Background Type="CT_RAW" Source="FF24425E" />
+      </Color>
+      <Color Name="Expression Hover Highlight">
+        <Background Type="CT_RAW" Source="FF5E5847" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint (Enabled)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint (Warning)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint (Error)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint (Disabled)">
+        <Foreground Type="CT_RAW" Source="FF587489" />
+      </Color>
+      <Color Name="Breakpoint - Temporary (Enabled)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Temporary (Warning)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Temporary (Error)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Temporary (Disabled)">
+        <Foreground Type="CT_RAW" Source="FF587489" />
+      </Color>
+      <Color Name="Breakpoint - Dependent (Enabled)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Dependent (Warning)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Dependent (Error)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Dependent (Disabled)">
+        <Foreground Type="CT_RAW" Source="FF587489" />
+      </Color>
+      <Color Name="Breakpoint - Mapped (Enabled)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Mapped (Warning)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Mapped (Error)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Mapped (Disabled)">
+        <Foreground Type="CT_RAW" Source="FF587489" />
+      </Color>
+      <Color Name="Breakpoint - Advanced (Enabled)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Advanced (Warning)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Advanced (Error)">
+        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Foreground Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="Breakpoint - Advanced (Disabled)">
+        <Foreground Type="CT_RAW" Source="FF587489" />
+      </Color>
+      <Color Name="Breakpoint - Selected">
+        <Foreground Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="Peek Background">
+        <Background Type="CT_RAW" Source="FF0B1624" />
+      </Color>
+      <Color Name="Peek Background Unfocused">
+        <Background Type="CT_RAW" Source="FF16263B" />
+      </Color>
+      <Color Name="Peek Focused Border">
+        <Foreground Type="CT_RAW" Source="FF5FD7E6" />
+      </Color>
+      <Color Name="Peek Label Text">
+        <Foreground Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
+      <Color Name="Peek Highlighted Text">
+        <Background Type="CT_RAW" Source="FF24425E" />
+      </Color>
+      <Color Name="Peek Highlighted Text Unfocused">
+        <Background Type="CT_RAW" Source="FF1C3048" />
+      </Color>
+      <Color Name="Block Structure Adornments">
+        <Background Type="CT_RAW" Source="FF2A4560" />
+      </Color>
+      <Color Name="Suggestion Margin">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+      </Color>
+      <Color Name="outlining.chevron.collapsed">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+        <Foreground Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="RenameTrackingTag">
+        <Foreground Type="CT_RAW" Source="FF5FD7E6" />
+      </Color>
+      <Color Name="RoslynRenameFixupTag">
+        <Foreground Type="CT_RAW" Source="FF7EE8A8" />
+      </Color>
+    </Category>
+    <Category Name="Text Editor Text Marker Items" GUID="{ff349800-ea43-46c1-8c98-878e78f46501}">
+      <Color Name="syntax error">
+        <Foreground Type="CT_RAW" Source="FFF2777A" />
+      </Color>
+      <Color Name="compiler error">
+        <Foreground Type="CT_RAW" Source="FFF2777A" />
+      </Color>
+      <Color Name="other error">
+        <Foreground Type="CT_RAW" Source="FFB9A3F0" />
+      </Color>
+      <Color Name="compiler warning">
+        <Foreground Type="CT_RAW" Source="FFF0C674" />
+      </Color>
+      <Color Name="hinted suggestion">
+        <Foreground Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="Track Changes before save">
+        <Background Type="CT_RAW" Source="FFF0C674" />
+      </Color>
+      <Color Name="Track Changes after save">
+        <Background Type="CT_RAW" Source="FF7EE8A8" />
+      </Color>
+      <Color Name="Track reverted changes">
+        <Background Type="CT_RAW" Source="FF7CC4F8" />
+      </Color>
+      <Color Name="Bookmark">
+        <Background Type="CT_RAW" Source="FF534F43" />
+        <Foreground Type="CT_RAW" Source="00000000" />
+      </Color>
+      <Color Name="Code Snippet Field (Selected)">
+        <Background Type="CT_RAW" Source="FF24425E" />
+      </Color>
+      <Color Name="Brace Matching (Rectangle)">
+        <Background Type="CT_RAW" Source="FF24425E" />
+        <Foreground Type="CT_RAW" Source="00000000" />
+      </Color>
+      <Color Name="Definition Window Current Match">
+        <Foreground Type="CT_RAW" Source="FFF0C674" />
+      </Color>
+      <Color Name="Error Message">
+        <Foreground Type="CT_RAW" Source="FFF2777A" />
+      </Color>
     </Category>
   </Theme>
 </Themes>

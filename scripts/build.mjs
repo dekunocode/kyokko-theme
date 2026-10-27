@@ -216,6 +216,28 @@ function mix(hex, base, amount) {
 function vstheme() {
   // [category, guid, [[colorName, background, foreground], ...]]  — B/F are AARRGGBB or null
   const fg = (color) => [null, argb(color)];
+
+  // Shared by the MEF and the older text marker categories
+  const squiggles = [
+    ['syntax error', ...fg(status.error)],
+    ['compiler error', ...fg(status.error)],
+    ['other error', ...fg(sx.number)],
+    ['compiler warning', ...fg(status.warning)],
+    ['hinted suggestion', ...fg(text.muted)],
+  ];
+  const trackChanges = [
+    ['Track Changes before save', argb(status.warning)],
+    ['Track Changes after save', argb(status.success)],
+    ['Track reverted changes', argb(status.info)],
+  ];
+  // Breakpoint glyph/line colors under the names the Dark theme defines
+  const bpLine = argb(mix(status.error, ui.bg, 0.4));
+  const breakpoints = [];
+  for (const kind of ['', ' - Temporary', ' - Dependent', ' - Mapped', ' - Advanced']) {
+    for (const state of ['Enabled', 'Warning', 'Error']) breakpoints.push([`Breakpoint${kind} (${state})`, bpLine, argb(text.fgBright)]);
+    breakpoints.push([`Breakpoint${kind} (Disabled)`, null, argb(text.lineNumber)]);
+  }
+  breakpoints.push(['Breakpoint - Selected', null, argb(text.muted)]);
   const cats = [
     ['Shell', '{73708ded-2d56-4aad-b8eb-73b20d3f4bff}', [
       ['AccentFillDefault', argb(ui.accent)],
@@ -485,6 +507,52 @@ function vstheme() {
       ['OverviewMarginScrollButtons', argb(ui.bg), argb(text.muted)],
       ['OverviewMarginScrollButtonsMouseOver', argb(ui.bg), argb(ui.scrollbar)],
       ['OverviewMarginScrollButtonsMouseDown', argb(ui.bg), argb(ui.accent)],
+      ['OverviewMarginCollapsedRegion', argb(text.muted)],
+      // States: squiggles, find/selection highlights, diff, change tracking. Dark uses unrelated
+      // hues here (cyan compiler errors, green warnings, brown find matches).
+      ...squiggles,
+      ['MarkerFormatDefinition/FindHighlight', argb(mix(sx.special, ui.bg, 0.3)), NONE],
+      ['MarkerFormatDefinition/ScopeHighlight', argb(ui.surface)],
+      ['MarkerFormatDefinition/SelectedTextInScrollBar', argb(text.muted)],
+      ['MarkerFormatDefinition/BookmarkInScrollBar', argb(text.muted)],
+      ['MarkerFormatDefinition/BreakpointInScrollBar', argb(status.error)],
+      ['Matched Selected Text', argb(ui.elevated), NONE],
+      ...trackChanges,
+      ['deltadiff.remove.line', argb(mix(status.error, ui.bg, 0.12))],
+      ['deltadiff.add.line', argb(mix(status.success, ui.bg, 0.12))],
+      ['deltadiff.remove.word', argb(mix(status.error, ui.bg, 0.3)), argb(status.error)],
+      ['deltadiff.add.word', argb(mix(status.success, ui.bg, 0.3)), argb(status.success)],
+      ['deltadiff.overview.color', argb(ui.surface), argb(ui.border)],
+      // Debugger: current statement and breakpoints keep their meaning (gold = here, red = stop)
+      // but as dark tints, so the code on those lines stays readable in light text.
+      ['Current Statement', argb(mix(sx.special, ui.bg, 0.35)), argb(text.fgBright)],
+      ['Current Statement (new context)', argb(mix(sx.string, ui.bg, 0.3)), argb(text.fgBright)],
+      ['Current Statement (historical mode)', argb(mix(status.success, ui.bg, 0.3)), argb(text.fgBright)],
+      ['RoslynActiveStatementTag', argb(ui.selection)],
+      ['Expression Hover Highlight', argb(mix(sx.special, ui.bg, 0.35)), argb(text.fgBright)],
+      ...breakpoints,
+      // Peek definition, structure guides, collapsed regions, light bulb margin
+      ['Peek Background', argb(ui.deep)],
+      ['Peek Background Unfocused', argb(ui.surface)],
+      ['Peek Focused Border', null, argb(ui.accent)],
+      ['Peek Label Text', null, argb(text.fg)],
+      ['Peek Highlighted Text', argb(ui.selection)],
+      ['Peek Highlighted Text Unfocused', argb(ui.elevated)],
+      ['Block Structure Adornments', argb(ui.border)],
+      ['Suggestion Margin', argb(ui.bg)],
+      ['outlining.chevron.collapsed', argb(ui.bg), argb(text.muted)],
+      ['RenameTrackingTag', null, argb(ui.accent)],
+      ['RoslynRenameFixupTag', null, argb(status.success)],
+    ]],
+    // Older marker category: same squiggles, bookmarks and snippet fields.
+    ['Text Editor Text Marker Items', '{ff349800-ea43-46c1-8c98-878e78f46501}', [
+      ...squiggles,
+      ...trackChanges,
+      ['Bookmark', argb(mix(sx.special, ui.bg, 0.3)), NONE],
+      ['Code Snippet Field (Selected)', argb(ui.selection)],
+      ['Brace Matching (Rectangle)', argb(ui.selection), NONE],
+      ['Definition Window Current Match', null, argb(sx.special)],
+      ['Error Message', null, argb(status.error)],
     ]],
   ];
 
