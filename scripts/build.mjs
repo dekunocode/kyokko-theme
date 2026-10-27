@@ -311,8 +311,6 @@ function vstheme() {
       ['CSS Property Name', ...fg(sx.property)],
       ['CSS Property Value', ...fg(sx.string)],
       ['CSS String Value', ...fg(sx.string)],
-      // URLs such as xmlns="http://..." (VS default is its own blue)
-      ['urlformat', ...fg(sx.type)],
     ]],
     // Roslyn (C#) semantic colors also live in this category. Unlike Zed, VS knows which
     // identifiers are properties, so members get the pale teal while locals stay white.
@@ -356,6 +354,9 @@ function vstheme() {
       ['MarkerFormatDefinition/HighlightedDefinition', argb(ui.elevated), NONE],
       ['MarkerFormatDefinition/HighlightedWrittenReference', argb(ui.selection), NONE],
       ['CurrentLineActiveFormat', argb(ui.surface, 0x80), argb(ui.surface)],
+      // URLs such as xmlns="http://..." (VS default is its own blue). urlformat is a MEF
+      // classification, so it has no effect in the language service category above.
+      ['urlformat', ...fg(sx.type)],
       // The newer XAML editor classifies markup extensions ({Binding ...}) under MEF items,
       // so set them here as well as in the language service category above.
       ['XAML Markup Extension Class', ...fg(sx.type)],

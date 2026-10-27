@@ -269,9 +269,6 @@
       <Color Name="CSS String Value">
         <Foreground Type="CT_RAW" Source="FFE6D9A2" />
       </Color>
-      <Color Name="urlformat">
-        <Foreground Type="CT_RAW" Source="FF7CC4F8" />
-      </Color>
     </Category>
     <Category Name="Text Editor MEF Items" GUID="{75a05685-00a8-4ded-bae5-e7a50bfa929a}">
       <Color Name="class name">
@@ -395,6 +392,9 @@
       <Color Name="CurrentLineActiveFormat">
         <Background Type="CT_RAW" Source="8016263B" />
         <Foreground Type="CT_RAW" Source="FF16263B" />
+      </Color>
+      <Color Name="urlformat">
+        <Foreground Type="CT_RAW" Source="FF7CC4F8" />
       </Color>
       <Color Name="XAML Markup Extension Class">
         <Foreground Type="CT_RAW" Source="FF7CC4F8" />
