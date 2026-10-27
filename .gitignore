@@ -1,0 +1,13 @@
+# Visual Studio / build output
+.vs/
+bin/
+obj/
+_built/
+*.user
+*.suo
+*.vsix
+
+# Editors / OS
+.vscode/
+Thumbs.db
+.DS_Store

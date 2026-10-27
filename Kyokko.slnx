@@ -1,0 +1,13 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+  </Configurations>
+  <Folder Name="/Solution Items/">
+    <File Path="palette.json" />
+    <File Path="README.md" />
+    <File Path="scripts/build.mjs" />
+  </Folder>
+  <Project Path="vs/Kyokko.csproj">
+    <Deploy Solution="Debug|Any CPU" />
+  </Project>
+</Solution>

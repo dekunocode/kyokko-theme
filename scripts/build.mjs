@@ -1,0 +1,432 @@
+// Generates every Kyokko theme file from palette.json.
+//
+//   node scripts/build.mjs           write all theme files
+//   node scripts/build.mjs --check   also fail if a committed file is out of date (used by CI)
+//
+// No dependencies: runs on any Node.js 18+.
+
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const root = join(dirname(fileURLToPath(import.meta.url)), '..');
+const p = JSON.parse(readFileSync(join(root, 'palette.json'), 'utf8'));
+const { ui, text, syntax: sx, status, terminal: term } = p;
+
+// ---------------------------------------------------------------------------
+// Zed  (themes/zed/kyokko.json)
+// ---------------------------------------------------------------------------
+function zed() {
+  const s = {
+    'background': ui.bg,
+    'border': ui.border,
+    'border.variant': ui.surface,
+    'border.focused': ui.accent,
+    'border.selected': ui.accent,
+    'border.transparent': '#00000000',
+    'border.disabled': ui.surface,
+    'elevated_surface.background': ui.elevated,
+    'surface.background': ui.surface,
+    'element.background': ui.elevated,
+    'element.hover': ui.selection + '80',
+    'element.active': ui.selection,
+    'element.selected': ui.selection,
+    'element.disabled': ui.elevated + '80',
+    'drop_target.background': ui.accent + '33',
+    'ghost_element.background': '#00000000',
+    'ghost_element.hover': ui.selection + '80',
+    'ghost_element.active': ui.selection,
+    'ghost_element.selected': ui.elevated,
+    'ghost_element.disabled': '#00000000',
+    'text': text.fg,
+    'text.muted': text.muted,
+    'text.placeholder': sx.comment,
+    'text.disabled': text.lineNumber,
+    'text.accent': ui.accent,
+    'icon': text.icon,
+    'icon.muted': text.muted,
+    'icon.disabled': text.lineNumber,
+    'icon.placeholder': sx.comment,
+    'icon.accent': ui.accent,
+    'status_bar.background': ui.surface,
+    'title_bar.background': ui.surface,
+    'title_bar.inactive_background': ui.deep,
+    'toolbar.background': ui.bg,
+    'tab_bar.background': ui.surface,
+    'tab.inactive_background': ui.surface,
+    'tab.active_background': ui.bg,
+    'search.match_background': sx.number + '4d',
+    'panel.background': ui.surface,
+    'panel.focused_border': ui.accent,
+    'pane.focused_border': ui.accent,
+    'scrollbar.thumb.background': ui.border + '99',
+    'scrollbar.thumb.hover_background': ui.scrollbar + 'cc',
+    'scrollbar.thumb.border': '#00000000',
+    'scrollbar.track.background': '#00000000',
+    'scrollbar.track.border': '#00000000',
+    'editor.foreground': text.fg,
+    'editor.background': ui.bg,
+    'editor.gutter.background': ui.bg,
+    'editor.subheader.background': ui.surface,
+    'editor.active_line.background': ui.surface + '99',
+    'editor.highlighted_line.background': ui.surface,
+    'editor.line_number': text.lineNumber,
+    'editor.active_line_number': ui.accent,
+    'editor.invisible': ui.border,
+    'editor.wrap_guide': ui.guide,
+    'editor.active_wrap_guide': ui.border,
+    'editor.indent_guide': ui.guide,
+    'editor.indent_guide_active': ui.scrollbar,
+    'editor.document_highlight.read_background': ui.selection + '99',
+    'editor.document_highlight.write_background': ui.selection,
+    'terminal.background': ui.bg,
+    'terminal.foreground': text.fg,
+    'terminal.bright_foreground': text.fgBright,
+    'terminal.dim_foreground': sx.comment,
+  };
+  const ansi = ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'];
+  for (const c of ansi) s[`terminal.ansi.${c}`] = term[c];
+  for (const c of ansi) s[`terminal.ansi.bright_${c}`] = term['bright' + c[0].toUpperCase() + c.slice(1)];
+  s['link_text.hover'] = ui.accent;
+
+  const states = [
+    ['error', status.error], ['warning', status.warning], ['info', status.info], ['hint', sx.comment],
+    ['success', status.success], ['created', status.success], ['modified', status.info],
+    ['deleted', status.error], ['renamed', ui.accent], ['conflict', status.warning],
+    ['ignored', text.lineNumber], ['hidden', text.lineNumber], ['unreachable', text.lineNumber],
+    ['predictive', sx.comment],
+  ];
+  for (const [n, c] of states) {
+    s[n] = c;
+    s[`${n}.background`] = c + '26';
+    s[`${n}.border`] = c + '66';
+  }
+
+  s.players = [
+    { cursor: ui.accent, background: ui.accent, selection: ui.selection },
+    { cursor: sx.number, background: sx.number, selection: sx.number + '33' },
+    { cursor: sx.function, background: sx.function, selection: sx.function + '33' },
+  ];
+
+  const c = (color, extra = {}) => ({ color, ...extra });
+  s.syntax = {
+    'comment': c(sx.comment),
+    'comment.doc': c(sx.comment),
+    'keyword': c(sx.keyword),
+    'operator': c(sx.operator),
+    'string': c(sx.string),
+    'string.escape': c(sx.escape),
+    'string.regex': c(sx.escape),
+    'string.special': c(sx.special),
+    'string.special.symbol': c(sx.special),
+    'number': c(sx.number),
+    'boolean': c(sx.number),
+    'constant': c(sx.number),
+    'function': c(sx.function),
+    'type': c(sx.type),
+    'constructor': c(sx.type),
+    'enum': c(sx.type),
+    'variant': c(sx.number),
+    'property': c(sx.property),
+    'variable': c(text.fg),
+    'variable.parameter': c(sx.parameter),
+    'variable.special': c(sx.keyword),
+    'attribute': c(sx.escape),
+    'tag': c(sx.keyword),
+    'label': c(sx.special),
+    'punctuation': c(sx.punctuation),
+    'punctuation.bracket': c(sx.punctuation),
+    'punctuation.delimiter': c(sx.punctuation),
+    'punctuation.list_marker': c(ui.accent),
+    'punctuation.special': c(sx.number),
+    'preproc': c(sx.number),
+    'embedded': c(text.fg),
+    'primary': c(text.fg),
+    'title': c(ui.accent, { font_weight: 700 }),
+    'emphasis': c(sx.escape, { font_style: 'italic' }),
+    'emphasis.strong': c(ui.accent, { font_weight: 700 }),
+    'link_text': c(sx.type),
+    'link_uri': c(sx.function),
+    'text.literal': c(sx.string),
+    'hint': c(sx.comment),
+    'predictive': c(text.lineNumber, { font_style: 'italic' }),
+  };
+
+  return json({
+    $schema: 'https://zed.dev/schema/themes/v0.2.0.json',
+    name: p.name,
+    author: p.author,
+    themes: [{ name: p.name, appearance: 'dark', style: s }],
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Windows Terminal  (themes/windows-terminal/kyokko.json — paste into "schemes")
+// ---------------------------------------------------------------------------
+function windowsTerminal() {
+  return json({
+    name: p.name,
+    background: ui.bg,
+    foreground: text.fg,
+    cursorColor: ui.accent,
+    selectionBackground: ui.selection,
+    black: term.black,
+    red: term.red,
+    green: term.green,
+    yellow: term.yellow,
+    blue: term.blue,
+    purple: term.magenta,
+    cyan: term.cyan,
+    white: term.white,
+    brightBlack: term.brightBlack,
+    brightRed: term.brightRed,
+    brightGreen: term.brightGreen,
+    brightYellow: term.brightYellow,
+    brightBlue: term.brightBlue,
+    brightPurple: term.brightMagenta,
+    brightCyan: term.brightCyan,
+    brightWhite: term.brightWhite,
+  });
+}
+
+// ---------------------------------------------------------------------------
+// Visual Studio 2026  (vs/Kyokko.vstheme — compiled into the VSIX by VsixColorCompiler)
+//
+// VS 2026 reads the new semantic "Shell" / "ShellInternal" tokens first and falls back to
+// the built-in Dark theme (FallbackId) for anything not listed here. The legacy categories
+// below cover tool windows and the editor, which still use the older tokens.
+// See: https://learn.microsoft.com/visualstudio/extensibility/migration/modernize-theme-colors
+// ---------------------------------------------------------------------------
+const VS_THEME_GUID = '{0f692d25-d509-4a82-8b88-38bf31172dc7}'; // never change: VS stores the user's choice by this id
+const VS_DARK_FALLBACK = '{1ded0138-47ce-435e-84ef-9ec1f439b749}';
+const NONE = '00000000';
+
+/** '#rrggbb' (+ optional alpha 0-255) → VS 'AARRGGBB' */
+function argb(hex, alpha = 255) {
+  return alpha.toString(16).padStart(2, '0').toUpperCase() + hex.slice(1).toUpperCase();
+}
+
+function vstheme() {
+  // [category, guid, [[colorName, background, foreground], ...]]  — B/F are AARRGGBB or null
+  const fg = (color) => [null, argb(color)];
+  const cats = [
+    ['Shell', '{73708ded-2d56-4aad-b8eb-73b20d3f4bff}', [
+      ['AccentFillDefault', argb(ui.accent)],
+      ['AccentFillSecondary', argb(ui.accent, 0xe5)],
+      ['AccentFillTertiary', argb(ui.accent, 0xcc)],
+      ['SolidBackgroundFillTertiary', argb(ui.surface)],
+      ['SolidBackgroundFillQuaternary', argb(ui.elevated)],
+      ['SurfaceBackgroundFillDefault', argb(ui.elevated)],
+      ['TextFillSecondary', argb(text.fg, 0xc8)],
+    ]],
+    ['ShellInternal', '{5af241b7-5627-4d12-bfb1-2b67d11127d7}', [
+      ['EnvironmentBackground', argb(ui.deep)],
+      ['EnvironmentBorder', argb(ui.border)],
+      ['EnvironmentIndicator', argb(text.muted, 0x66)],
+      ['EnvironmentLogo', argb(ui.accent)],
+      ['EnvironmentLayeredBackground', argb(ui.elevated, 0x4d)],
+    ]],
+    ['Environment', '{624ed9c3-bdfd-41fa-96c3-7c824ea32e3d}', [
+      ['Window', argb(ui.bg)],
+      ['ToolWindowBackground', argb(ui.surface), argb(text.fg)],
+      ['BrandedUIBackground', argb(ui.bg)],
+      ['ScrollBarBackground', argb(ui.surface)],
+    ]],
+    ['TreeView', '{92ecf08e-8b13-4cf4-99e9-ae2692382185}', [
+      ['Background', argb(ui.surface), argb(text.fg)],
+    ]],
+    ['Header', '{4997f547-1379-456e-b985-2f413cdfa536}', [
+      ['Default', argb(ui.surface), argb(text.fg)],
+    ]],
+    ['Output Window', '{9973efdf-317d-431c-8bc1-5e88cbfd4f7f}', [
+      ['Plain Text', argb(ui.bg), argb(text.fg)],
+    ]],
+    ['Find Results', '{5c48b2cb-0366-4fbf-9786-0bb37e945687}', [
+      ['Plain Text', argb(ui.bg), argb(text.fg)],
+    ]],
+    ['Immediate Window', '{6bb65c5a-2f31-4bde-9f48-8a38dc0c63e7}', [
+      ['Plain Text', argb(ui.bg), argb(text.fg)],
+    ]],
+    ['Command Window', '{ee1be240-4e81-4beb-8eea-54322b6b1bf5}', [
+      ['Plain Text', argb(ui.bg), argb(text.fg)],
+    ]],
+    ['Text Editor Text Manager Items', '{58e96763-1d3b-4e05-b6ba-ff7115fd0b7b}', [
+      ['Plain Text', argb(ui.bg), argb(text.fg)],
+      ['Selected Text', argb(ui.selection), NONE],
+      ['Inactive Selected Text', argb(ui.elevated), NONE],
+      ['Line Number', argb(ui.bg), argb(text.lineNumber)],
+      ['Selected Line Number', null, argb(ui.accent)],
+      ['Visible Whitespace', null, argb(ui.border)],
+      ['Indicator Margin', argb(ui.bg), NONE],
+    ]],
+    ['Text Editor Language Service Items', '{e0187991-b458-4f7e-8ca9-42c9a573b56c}', [
+      ['Text', ...fg(text.fg)],
+      ['Identifier', ...fg(text.fg)],
+      ['Comment', ...fg(sx.comment)],
+      ['Keyword', ...fg(sx.keyword)],
+      ['Preprocessor Keyword', ...fg(sx.number)],
+      ['Operator', ...fg(sx.operator)],
+      ['String', ...fg(sx.string)],
+      ['String(C# @ Verbatim)', ...fg(sx.string)],
+      ['Number', ...fg(sx.number)],
+      ['Literal', ...fg(sx.number)],
+      ['User Types', ...fg(sx.type)],
+      ['User Types(Value types)', ...fg(sx.type)],
+      ['User Types(Interfaces)', ...fg(sx.type)],
+      ['User Types(Delegates)', ...fg(sx.type)],
+      ['User Types(Enums)', ...fg(sx.type)],
+      ['User Types(Type parameters)', ...fg(sx.type)],
+      // XML / XAML (WPF, Avalonia, .csproj)
+      ['XML Text', ...fg(text.fg)],
+      ['XML Keyword', ...fg(sx.keyword)],
+      ['XML Delimiter', ...fg(sx.punctuation)],
+      ['XML Name', ...fg(sx.keyword)],
+      ['XML Attribute', ...fg(sx.property)],
+      ['XML Attribute Quotes', ...fg(sx.string)],
+      ['XML Attribute Value', ...fg(sx.string)],
+      ['XML Comment', ...fg(sx.comment)],
+      ['XML CData Section', ...fg(sx.string)],
+      ['XAML Text', ...fg(text.fg)],
+      ['XAML Keyword', ...fg(sx.keyword)],
+      ['XAML Delimiter', ...fg(sx.punctuation)],
+      ['XAML Name', ...fg(sx.keyword)],
+      ['XAML Attribute', ...fg(sx.property)],
+      ['XAML Attribute Quotes', ...fg(sx.string)],
+      ['XAML Attribute Value', ...fg(sx.string)],
+      ['XAML Markup Extension Class', ...fg(sx.type)],
+      ['XAML Markup Extension Parameter Name', ...fg(sx.property)],
+      ['XAML Markup Extension Parameter Value', ...fg(sx.string)],
+      ['XAML Comment', ...fg(sx.comment)],
+      // HTML / CSS
+      ['HTML Element Name', ...fg(sx.keyword)],
+      ['HTML Attribute Name', ...fg(sx.property)],
+      ['HTML Attribute Value', ...fg(sx.string)],
+      ['HTML Comment', ...fg(sx.comment)],
+      ['HTML Tag Delimiter', ...fg(sx.punctuation)],
+      ['HTML Operator', ...fg(sx.operator)],
+      ['HTML Entity', ...fg(sx.special)],
+      ['CSS Keyword', ...fg(sx.keyword)],
+      ['CSS Comment', ...fg(sx.comment)],
+      ['CSS Selector', ...fg(sx.function)],
+      ['CSS Property Name', ...fg(sx.property)],
+      ['CSS Property Value', ...fg(sx.string)],
+      ['CSS String Value', ...fg(sx.string)],
+    ]],
+    // Roslyn (C#) semantic colors also live in this category. Unlike Zed, VS knows which
+    // identifiers are properties, so members get the pale teal while locals stay white.
+    ['Text Editor MEF Items', '{75a05685-00a8-4ded-bae5-e7a50bfa929a}', [
+      ['class name', ...fg(sx.type)],
+      ['record class name', ...fg(sx.type)],
+      ['struct name', ...fg(sx.type)],
+      ['record struct name', ...fg(sx.type)],
+      ['interface name', ...fg(sx.type)],
+      ['enum name', ...fg(sx.type)],
+      ['delegate name', ...fg(sx.type)],
+      ['module name', ...fg(sx.type)],
+      ['type parameter name', ...fg(sx.type)],
+      ['method name', ...fg(sx.function)],
+      ['extension method name', ...fg(sx.function)],
+      ['property name', ...fg(sx.property)],
+      ['event name', ...fg(sx.property)],
+      ['field name', ...fg(text.fg)],
+      ['local name', ...fg(text.fg)],
+      ['parameter name', ...fg(sx.parameter)],
+      ['constant name', ...fg(sx.number)],
+      ['enum member name', ...fg(sx.number)],
+      ['namespace name', ...fg(text.muted)],
+      ['label name', ...fg(sx.special)],
+      ['keyword - control', ...fg(sx.keyword)],
+      ['operator - overloaded', ...fg(sx.operator)],
+      ['punctuation', ...fg(sx.punctuation)],
+      ['string - verbatim', ...fg(sx.string)],
+      ['string - escape character', ...fg(sx.escape)],
+      ['xml doc comment - text', ...fg(sx.comment)],
+      ['xml doc comment - delimiter', ...fg(text.lineNumber)],
+      ['xml doc comment - name', ...fg(sx.comment)],
+      ['xml doc comment - attribute name', ...fg(sx.comment)],
+      ['xml doc comment - attribute value', ...fg(sx.comment)],
+      ['brace pair level one', ...fg(ui.accent)],
+      ['brace pair level two', ...fg(sx.function)],
+      ['brace pair level three', ...fg(sx.number)],
+      ['mismatched brace', ...fg(status.error)],
+      ['brace matching', argb(ui.selection), NONE],
+      ['MarkerFormatDefinition/HighlightedReference', argb(ui.elevated), NONE],
+      ['MarkerFormatDefinition/HighlightedDefinition', argb(ui.elevated), NONE],
+      ['MarkerFormatDefinition/HighlightedWrittenReference', argb(ui.selection), NONE],
+      ['CurrentLineActiveFormat', argb(ui.surface, 0x80), argb(ui.surface)],
+    ]],
+  ];
+
+  const esc = (s) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  const out = [
+    '<?xml version="1.0" encoding="utf-8"?>',
+    '<!-- Generated by scripts/build.mjs from palette.json. Do not edit by hand. -->',
+    '<Themes>',
+    `  <Theme Name="${p.name}" GUID="${VS_THEME_GUID}" FallbackId="${VS_DARK_FALLBACK}">`,
+  ];
+  for (const [name, guid, colors] of cats) {
+    out.push(`    <Category Name="${esc(name)}" GUID="${guid}">`);
+    for (const [cname, bg, fgc] of colors) {
+      out.push(`      <Color Name="${esc(cname)}">`);
+      if (bg) out.push(`        <Background Type="CT_RAW" Source="${bg}" />`);
+      if (fgc) out.push(`        <Foreground Type="CT_RAW" Source="${fgc}" />`);
+      out.push('      </Color>');
+    }
+    out.push('    </Category>');
+  }
+  out.push('  </Theme>', '</Themes>', '');
+  return out.join('\n');
+}
+
+// ---------------------------------------------------------------------------
+// Contrast report (WCAG 2 ratio against the editor background)
+// ---------------------------------------------------------------------------
+function luminance(hex) {
+  const [r, g, b] = [1, 3, 5].map((i) => {
+    const v = parseInt(hex.slice(i, i + 2), 16) / 255;
+    return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+const contrast = (a, b) => {
+  const [x, y] = [luminance(a), luminance(b)].sort((m, n) => n - m);
+  return (x + 0.05) / (y + 0.05);
+};
+
+function report() {
+  const rows = [['text.fg', text.fg], ['text.muted', text.muted], ['text.lineNumber', text.lineNumber],
+    ...Object.entries(sx).map(([k, v]) => [`syntax.${k}`, v])];
+  console.log(`\nContrast vs bg ${ui.bg} (4.5+ recommended for code text):`);
+  for (const [k, v] of rows) {
+    const r = contrast(v, ui.bg);
+    const note = k === 'text.lineNumber' ? '  (UI only)' : r < 4.5 ? '  <-- low' : '';
+    console.log(`  ${k.padEnd(20)} ${v}  ${r.toFixed(1).padStart(4)}${note}`);
+  }
+}
+
+// ---------------------------------------------------------------------------
+function json(o) { return JSON.stringify(o, null, 2) + '\n'; }
+
+const outputs = {
+  'themes/zed/kyokko.json': zed(),
+  'themes/windows-terminal/kyokko.json': windowsTerminal(),
+  'vs/Kyokko.vstheme': vstheme(),
+};
+
+const check = process.argv.includes('--check');
+let stale = [];
+for (const [rel, content] of Object.entries(outputs)) {
+  const file = join(root, rel);
+  if (check) {
+    if (!existsSync(file) || readFileSync(file, 'utf8') !== content) stale.push(rel);
+    continue;
+  }
+  mkdirSync(dirname(file), { recursive: true });
+  writeFileSync(file, content);
+  console.log(`wrote ${rel}`);
+}
+report();
+if (check && stale.length) {
+  console.error(`\nOut of date (run: node scripts/build.mjs):\n  ${stale.join('\n  ')}`);
+  process.exit(1);
+}

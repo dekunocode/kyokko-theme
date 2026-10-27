@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
+    <Metadata>
+        <Identity Id="Kyokko.5764b8fe-6f03-4576-a9ff-f4769c0bba2c" Version="0.1.0" Language="en-US" Publisher="dekunocode" />
+        <DisplayName>Kyokko Theme</DisplayName>
+        <Description xml:space="preserve">Kyokko (極光, "aurora"): a calm navy dark theme lit by aurora cyan and green, built for Visual Studio 2026.</Description>
+        <License>Resources\LICENSE.txt</License>
+        <Icon>Resources\Icon.png</Icon>
+        <Tags>theme, dark, navy, aurora, kyokko</Tags>
+    </Metadata>
+    <Installation>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0, 19.0)">
+            <ProductArchitecture>amd64</ProductArchitecture>
+        </InstallationTarget>
+        <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0, 19.0)">
+            <ProductArchitecture>arm64</ProductArchitecture>
+        </InstallationTarget>
+    </Installation>
+    <Prerequisites>
+        <Prerequisite Id="Microsoft.VisualStudio.Component.CoreEditor" Version="[18.0,)" DisplayName="Visual Studio core editor" />
+    </Prerequisites>
+    <Assets>
+        <Asset Type="Microsoft.VisualStudio.VsPackage" d:Source="Project" d:ProjectName="%CurrentProject%" Path="|%CurrentProject%;PkgdefProjectOutputGroup|" />
+    </Assets>
+</PackageManifest>

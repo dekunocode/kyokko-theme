@@ -1,0 +1,23 @@
+{
+  "name": "Kyokko",
+  "background": "#0f1c2e",
+  "foreground": "#d4e4ec",
+  "cursorColor": "#5fd7e6",
+  "selectionBackground": "#24425e",
+  "black": "#0f1c2e",
+  "red": "#f2777a",
+  "green": "#7ee8a8",
+  "yellow": "#e6d9a2",
+  "blue": "#7cc4f8",
+  "purple": "#b9a3f0",
+  "cyan": "#5fd7e6",
+  "white": "#d4e4ec",
+  "brightBlack": "#7f9bb0",
+  "brightRed": "#f59a9c",
+  "brightGreen": "#a3f0c2",
+  "brightYellow": "#f0c674",
+  "brightBlue": "#a2d6fa",
+  "brightPurple": "#cfbff5",
+  "brightCyan": "#8fe6f0",
+  "brightWhite": "#f2f8fb"
+}
