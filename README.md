@@ -13,7 +13,7 @@
 | Target | Status | File |
 | --- | --- | --- |
 | Visual Studio 2026 | [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.KyokkoTheme) | `vs/` |
-| Zed | Working (not published yet) | `themes/zed/kyokko.json` |
+| Zed | Extension ready (submission to the Zed registry planned) | `zed/` |
 | Windows Terminal | Working | `themes/windows-terminal/kyokko.json` |
 | VS Code | Planned | |
 
@@ -37,7 +37,7 @@
 `palette.json` is the single source of truth. Every theme file is generated from it:
 
 ```powershell
-node scripts/build.mjs          # regenerate themes/ and vs/Kyokko.vstheme, print a contrast report
+node scripts/build.mjs          # regenerate zed/, themes/ and vs/Kyokko.vstheme, print a contrast report
 node scripts/build.mjs --check  # fail if a generated file is out of date (CI runs this)
 ```
 
@@ -63,7 +63,12 @@ The Marketplace page is `vs/marketplace/overview.md` with the screenshots next t
 
 ### Zed
 
-Copy `themes/zed/kyokko.json` to `%APPDATA%\Zed\themes\` and select **Kyokko** in the theme picker.
+`zed/` is a Zed extension (`kyokko-theme`): `extension.toml`, a copy of the license (Zed checks it inside the extension directory) and the generated `themes/kyokko.json`.
+
+- To try it, run **zed: install dev extension** and select the `zed` folder, then pick **Kyokko** in the theme picker.
+- Or copy `zed/themes/kyokko.json` to `%APPDATA%\Zed\themes\`.
+
+When releasing a new version, bump `version` in `zed/extension.toml` and update the entry in [zed-industries/extensions](https://github.com/zed-industries/extensions) (`path = "zed"`).
 
 ### Windows Terminal
 

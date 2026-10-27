@@ -14,7 +14,7 @@ const p = JSON.parse(readFileSync(join(root, 'palette.json'), 'utf8'));
 const { ui, text, syntax: sx, status, terminal: term } = p;
 
 // ---------------------------------------------------------------------------
-// Zed  (themes/zed/kyokko.json)
+// Zed  (zed/themes/kyokko.json — zed/ is the Zed extension: extension.toml, LICENSE, themes/)
 // ---------------------------------------------------------------------------
 function zed() {
   const s = {
@@ -632,7 +632,9 @@ function report() {
 function json(o) { return JSON.stringify(o, null, 2) + '\n'; }
 
 const outputs = {
-  'themes/zed/kyokko.json': zed(),
+  'zed/themes/kyokko.json': zed(),
+  // Zed checks the license inside the extension directory, not at the repository root
+  'zed/LICENSE': readFileSync(join(root, 'LICENSE.txt'), 'utf8'),
   'themes/windows-terminal/kyokko.json': windowsTerminal(),
   'vs/Kyokko.vstheme': vstheme(),
 };

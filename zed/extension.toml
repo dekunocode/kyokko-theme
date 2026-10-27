@@ -1,0 +1,7 @@
+id = "kyokko-theme"
+name = "Kyokko"
+version = "1.0.0"
+schema_version = 1
+authors = ["dekunocode"]
+description = "A calm navy dark theme lit by aurora cyan and green."
+repository = "https://github.com/dekunocode/kyokko-theme"
