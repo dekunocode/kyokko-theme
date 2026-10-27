@@ -12,25 +12,73 @@
       <Color Name="AccentFillTertiary">
         <Background Type="CT_RAW" Source="CC5FD7E6" />
       </Color>
+      <Color Name="SolidBackgroundFillBaseAlt">
+        <Background Type="CT_RAW" Source="FF0B1624" />
+      </Color>
+      <Color Name="SolidBackgroundFillBase">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+      </Color>
+      <Color Name="SolidBackgroundFillSecondary">
+        <Background Type="CT_RAW" Source="FF0B1624" />
+      </Color>
       <Color Name="SolidBackgroundFillTertiary">
         <Background Type="CT_RAW" Source="FF16263B" />
       </Color>
       <Color Name="SolidBackgroundFillQuaternary">
         <Background Type="CT_RAW" Source="FF1C3048" />
       </Color>
+      <Color Name="SolidBackgroundFillQuinary">
+        <Background Type="CT_RAW" Source="FF24425E" />
+      </Color>
+      <Color Name="SolidBackgroundFillSenary">
+        <Background Type="CT_RAW" Source="FF2A4560" />
+      </Color>
       <Color Name="SurfaceBackgroundFillDefault">
         <Background Type="CT_RAW" Source="FF1C3048" />
       </Color>
+      <Color Name="CardStrokeDefaultSolid">
+        <Background Type="CT_RAW" Source="FF0B1624" />
+      </Color>
+      <Color Name="ControlSolidFillDefault">
+        <Background Type="CT_RAW" Source="FF2A4560" />
+      </Color>
+      <Color Name="TextFillPrimary">
+        <Background Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
       <Color Name="TextFillSecondary">
         <Background Type="CT_RAW" Source="C8D4E4EC" />
+      </Color>
+      <Color Name="TextFillTertiary">
+        <Background Type="CT_RAW" Source="FF8AA3B6" />
       </Color>
     </Category>
     <Category Name="ShellInternal" GUID="{5af241b7-5627-4d12-bfb1-2b67d11127d7}">
       <Color Name="EnvironmentBackground">
         <Background Type="CT_RAW" Source="FF0B1624" />
       </Color>
+      <Color Name="EnvironmentBody">
+        <Background Type="CT_RAW" Source="FF0B1624" />
+      </Color>
+      <Color Name="EnvironmentBodyText">
+        <Background Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
       <Color Name="EnvironmentBorder">
         <Background Type="CT_RAW" Source="FF2A4560" />
+      </Color>
+      <Color Name="EnvironmentBorderInactive">
+        <Background Type="CT_RAW" Source="FF1A2C42" />
+      </Color>
+      <Color Name="EnvironmentHeader">
+        <Background Type="CT_RAW" Source="FF1C3048" />
+      </Color>
+      <Color Name="EnvironmentHeaderInactive">
+        <Background Type="CT_RAW" Source="FF16263B" />
+      </Color>
+      <Color Name="EnvironmentTab">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+      </Color>
+      <Color Name="EnvironmentTabInactive">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
       </Color>
       <Color Name="EnvironmentIndicator">
         <Background Type="CT_RAW" Source="668AA3B6" />
