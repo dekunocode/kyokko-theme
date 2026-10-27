@@ -8,7 +8,7 @@
         <License>Resources\LICENSE.txt</License>
         <Icon>Resources\Icon.png</Icon>
         <PreviewImage>Resources\Preview.png</PreviewImage>
-        <Tags>theme, color theme, dark theme, dark, navy, blue, aurora, kyokko</Tags>
+        <Tags>theme;color theme;dark theme;dark;navy;blue;aurora;kyokko</Tags>
     </Metadata>
     <Installation>
         <InstallationTarget Id="Microsoft.VisualStudio.Community" Version="[18.0, 19.0)">
