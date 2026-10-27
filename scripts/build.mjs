@@ -311,6 +311,8 @@ function vstheme() {
       ['CSS Property Name', ...fg(sx.property)],
       ['CSS Property Value', ...fg(sx.string)],
       ['CSS String Value', ...fg(sx.string)],
+      // URLs such as xmlns="http://..." (VS default is its own blue)
+      ['urlformat', ...fg(sx.type)],
     ]],
     // Roslyn (C#) semantic colors also live in this category. Unlike Zed, VS knows which
     // identifiers are properties, so members get the pale teal while locals stay white.
@@ -354,6 +356,18 @@ function vstheme() {
       ['MarkerFormatDefinition/HighlightedDefinition', argb(ui.elevated), NONE],
       ['MarkerFormatDefinition/HighlightedWrittenReference', argb(ui.selection), NONE],
       ['CurrentLineActiveFormat', argb(ui.surface, 0x80), argb(ui.surface)],
+      // The newer XAML editor classifies markup extensions ({Binding ...}) under MEF items,
+      // so set them here as well as in the language service category above.
+      ['XAML Markup Extension Class', ...fg(sx.type)],
+      ['XAML Markup Extension Parameter Name', ...fg(sx.property)],
+      ['XAML Markup Extension Parameter Value', ...fg(sx.string)],
+      // Scroll bar in map mode: background, the visible-range box, and the arrow buttons
+      ['OverviewMarginBackground', argb(ui.bg), null],
+      ['OverviewMarginVisible', argb(ui.selection), argb(ui.border)],
+      ['OverviewMarginCaret', null, argb(ui.accent)],
+      ['OverviewMarginScrollButtons', argb(ui.bg), argb(text.muted)],
+      ['OverviewMarginScrollButtonsMouseOver', argb(ui.bg), argb(ui.scrollbar)],
+      ['OverviewMarginScrollButtonsMouseDown', argb(ui.bg), argb(ui.accent)],
     ]],
   ];
 

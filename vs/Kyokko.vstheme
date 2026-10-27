@@ -269,6 +269,9 @@
       <Color Name="CSS String Value">
         <Foreground Type="CT_RAW" Source="FFE6D9A2" />
       </Color>
+      <Color Name="urlformat">
+        <Foreground Type="CT_RAW" Source="FF7CC4F8" />
+      </Color>
     </Category>
     <Category Name="Text Editor MEF Items" GUID="{75a05685-00a8-4ded-bae5-e7a50bfa929a}">
       <Color Name="class name">
@@ -392,6 +395,37 @@
       <Color Name="CurrentLineActiveFormat">
         <Background Type="CT_RAW" Source="8016263B" />
         <Foreground Type="CT_RAW" Source="FF16263B" />
+      </Color>
+      <Color Name="XAML Markup Extension Class">
+        <Foreground Type="CT_RAW" Source="FF7CC4F8" />
+      </Color>
+      <Color Name="XAML Markup Extension Parameter Name">
+        <Foreground Type="CT_RAW" Source="FF9FD9D0" />
+      </Color>
+      <Color Name="XAML Markup Extension Parameter Value">
+        <Foreground Type="CT_RAW" Source="FFE6D9A2" />
+      </Color>
+      <Color Name="OverviewMarginBackground">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+      </Color>
+      <Color Name="OverviewMarginVisible">
+        <Background Type="CT_RAW" Source="FF24425E" />
+        <Foreground Type="CT_RAW" Source="FF2A4560" />
+      </Color>
+      <Color Name="OverviewMarginCaret">
+        <Foreground Type="CT_RAW" Source="FF5FD7E6" />
+      </Color>
+      <Color Name="OverviewMarginScrollButtons">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+        <Foreground Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="OverviewMarginScrollButtonsMouseOver">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+        <Foreground Type="CT_RAW" Source="FF3B5B7A" />
+      </Color>
+      <Color Name="OverviewMarginScrollButtonsMouseDown">
+        <Background Type="CT_RAW" Source="FF0F1C2E" />
+        <Foreground Type="CT_RAW" Source="FF5FD7E6" />
       </Color>
     </Category>
   </Theme>
