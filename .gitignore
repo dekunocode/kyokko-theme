@@ -6,6 +6,8 @@ _built/
 *.user
 *.suo
 *.vsix
+dev/vs-check/shots/
+dev/vs-check/KyokkoWpf/*.slnx
 
 # Editors / OS
 .vscode/
