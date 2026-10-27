@@ -2,14 +2,17 @@
 
 **Kyokko** (極光, *kyokkō*, "aurora") is a calm navy dark theme lit by aurora cyan and green.
 
+![C# in Visual Studio 2026 with Kyokko](vs/marketplace/csharp-editor.png)
+
 - Navy background with one step lighter surfaces for tool windows, tabs and status bar
 - Cyan keywords, green functions, sky-blue types, sand-colored strings, lilac numbers
 - Comments in plain (non-italic) blue-gray, so Japanese comments stay readable
 - Every code color is 5.9:1 or higher against the background (WCAG AA)
+- In Visual Studio, the whole IDE is navy (no gray panels), and errors, warnings, find matches and the debugger's current line keep their usual meaning in dark tints
 
 | Target | Status | File |
 | --- | --- | --- |
-| Visual Studio 2026 | In progress (VSIX) | `vs/` |
+| Visual Studio 2026 | Ready (Marketplace release planned) | `vs/` |
 | Zed | Working (not published yet) | `themes/zed/kyokko.json` |
 | Windows Terminal | Working | `themes/windows-terminal/kyokko.json` |
 | VS Code | Planned | |
@@ -46,6 +49,12 @@ Requirements: Visual Studio 2026 with the **Visual Studio extension development*
 The `.vstheme` sets the new Visual Studio 2026 semantic tokens (`Shell`, `ShellInternal`) and falls back to the built-in Dark theme for anything not listed. Editor colors, including Roslyn semantic colors such as property and parameter names, use the classic editor categories.
 
 Each push builds the VSIX on GitHub Actions; download it from the run's **Artifacts**.
+
+The Marketplace page is `vs/marketplace/overview.md` with the screenshots next to it, published with `vs/publishManifest.json`:
+
+```powershell
+& "C:\Program Files\Microsoft Visual Studio\18\Community\VSSDK\VisualStudioIntegration\Tools\Bin\VsixPublisher.exe" publish -payload vs\bin\Release\net48\Kyokko.vsix -publishManifest vs\publishManifest.json -personalAccessToken <token>
+```
 
 ### Zed
 

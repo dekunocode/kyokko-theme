@@ -1,0 +1,19 @@
+{
+  "$schema": "http://json.schemastore.org/vsix-publish",
+  "categories": [ "theme" ],
+  "identity": {
+    "internalName": "KyokkoTheme"
+  },
+  "assetFiles": [
+    { "pathOnDisk": "marketplace/csharp-editor.png", "targetPath": "marketplace/csharp-editor.png" },
+    { "pathOnDisk": "marketplace/csharp.png", "targetPath": "marketplace/csharp.png" },
+    { "pathOnDisk": "marketplace/xaml.png", "targetPath": "marketplace/xaml.png" },
+    { "pathOnDisk": "marketplace/debugging.png", "targetPath": "marketplace/debugging.png" }
+  ],
+  "overview": "marketplace/overview.md",
+  "priceCategory": "free",
+  "publisher": "dekunocode",
+  "private": false,
+  "qna": true,
+  "repo": "https://github.com/dekunocode/kyokko-theme"
+}
