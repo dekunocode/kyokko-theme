@@ -57,4 +57,4 @@ Paste the contents of `themes/windows-terminal/kyokko.json` into `schemes` in `s
 
 ## License
 
-[MIT](LICENSE)
+[MIT](LICENSE.txt)
