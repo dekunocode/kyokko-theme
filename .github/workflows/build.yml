@@ -25,7 +25,15 @@ jobs:
       - uses: microsoft/setup-msbuild@v3
 
       - name: Build VSIX
-        run: msbuild Kyokko.slnx /v:m -restore /p:Configuration=Release /p:DeployExtension=false /p:OutDir=${{ github.workspace }}\_built\
+        run: msbuild Kyokko.slnx /v:m -restore /p:Configuration=Release /p:DeployExtension=false "/p:OutDir=${{ github.workspace }}\_built\\" "-flp1:errorsonly;logfile=build-errors.log"
+
+      - name: Show build errors
+        if: failure()
+        shell: pwsh
+        run: |
+          if (Test-Path build-errors.log) {
+            Get-Content build-errors.log | Where-Object { $_.Trim() } | Select-Object -First 30 | ForEach-Object { Write-Output "::error::$_" }
+          }
 
       - uses: actions/upload-artifact@v4
         with:
