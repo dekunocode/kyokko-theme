@@ -496,9 +496,10 @@ function vstheme() {
       ['brace pair level three', ...fg(sx.number)],
       ['mismatched brace', ...fg(status.error)],
       ['brace matching', argb(ui.selection), NONE],
-      ['MarkerFormatDefinition/HighlightedReference', argb(ui.elevated), NONE],
-      ['MarkerFormatDefinition/HighlightedDefinition', argb(ui.elevated), NONE],
-      ['MarkerFormatDefinition/HighlightedWrittenReference', argb(ui.selection), NONE],
+      // Drawn at 80% like FindHighlight: these land on ui.elevated / ui.selection (Zed's document_highlight)
+      ['MarkerFormatDefinition/HighlightedReference', argb(under(ui.elevated, 0.8, ui.bg)), NONE],
+      ['MarkerFormatDefinition/HighlightedDefinition', argb(under(ui.elevated, 0.8, ui.bg)), NONE],
+      ['MarkerFormatDefinition/HighlightedWrittenReference', argb(under(ui.selection, 0.8, ui.bg)), NONE],
       ['CurrentLineActiveFormat', argb(ui.surface, 0x80), argb(ui.surface)],
       // URLs such as xmlns="http://..." (VS default is its own blue). urlformat is a MEF
       // classification, so it has no effect in the language service category above.

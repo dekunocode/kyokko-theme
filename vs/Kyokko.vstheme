@@ -626,15 +626,15 @@
         <Foreground Type="CT_RAW" Source="00000000" />
       </Color>
       <Color Name="MarkerFormatDefinition/HighlightedReference">
-        <Background Type="CT_RAW" Source="FF1C3048" />
+        <Background Type="CT_RAW" Source="FF1F354F" />
         <Foreground Type="CT_RAW" Source="00000000" />
       </Color>
       <Color Name="MarkerFormatDefinition/HighlightedDefinition">
-        <Background Type="CT_RAW" Source="FF1C3048" />
+        <Background Type="CT_RAW" Source="FF1F354F" />
         <Foreground Type="CT_RAW" Source="00000000" />
       </Color>
       <Color Name="MarkerFormatDefinition/HighlightedWrittenReference">
-        <Background Type="CT_RAW" Source="FF24425E" />
+        <Background Type="CT_RAW" Source="FF294C6A" />
         <Foreground Type="CT_RAW" Source="00000000" />
       </Color>
       <Color Name="CurrentLineActiveFormat">
