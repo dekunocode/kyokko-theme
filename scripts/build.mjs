@@ -206,6 +206,13 @@ function argb(hex, alpha = 255) {
   return alpha.toString(16).padStart(2, '0').toUpperCase() + hex.slice(1).toUpperCase();
 }
 
+/** Blend `hex` over `base` (amount 0-1 of `hex`) → '#rrggbb'. For dark tints of palette colors. */
+function mix(hex, base, amount) {
+  const ch = (h, i) => parseInt(h.slice(i, i + 2), 16);
+  return '#' + [1, 3, 5].map((i) =>
+    Math.round(ch(hex, i) * amount + ch(base, i) * (1 - amount)).toString(16).padStart(2, '0')).join('');
+}
+
 function vstheme() {
   // [category, guid, [[colorName, background, foreground], ...]]  — B/F are AARRGGBB or null
   const fg = (color) => [null, argb(color)];
@@ -228,6 +235,25 @@ function vstheme() {
       ['TextFillPrimary', argb(text.fg)],
       ['TextFillSecondary', argb(text.fg, 0xc8)],
       ['TextFillTertiary', argb(text.muted)],
+      // Fluent layers controls with translucent white (nav bar, search boxes, hover). Keep the same
+      // alphas but tint with the text color so the lift stays blue instead of going gray.
+      ['ControlFillDefault', argb(text.fg, 0x0f)],
+      ['ControlFillSecondary', argb(text.fg, 0x15)],
+      ['ControlFillTertiary', argb(text.fg, 0x08)],
+      ['ControlFillQuaternary', argb(text.fg, 0x0f)],
+      ['ControlFillDisabled', argb(text.fg, 0x0b)],
+      ['ControlAltFillTertiary', argb(text.fg, 0x0b)],
+      ['ControlAltFillQuaternary', argb(text.fg, 0x12)],
+      ['SubtleFillSecondary', argb(text.fg, 0x0f)],
+      ['SubtleFillTertiary', argb(text.fg, 0x0b)],
+      ['CardBackgroundFillDefault', argb(text.fg, 0x0d)],
+      ['CardBackgroundFillSecondary', argb(text.fg, 0x08)],
+      ['CardBackgroundFillTertiary', argb(text.fg, 0x12)],
+      ['LayerFillDefault', argb(ui.elevated, 0x4d)],
+      ['LayerFillAlt', argb(text.fg, 0x0e)],
+      ['ControlStrokeDefault', argb(text.fg, 0x12)],
+      ['ControlStrokeSecondary', argb(text.fg, 0x12)],
+      ['DividerStrokeDefault', argb(text.fg, 0x15)],
     ]],
     // Window frame, tool window headers and document tabs. The tab strips have no token of their
     // own: they are EnvironmentLayeredBackground drawn over EnvironmentBody.
@@ -244,6 +270,42 @@ function vstheme() {
       ['EnvironmentIndicator', argb(text.muted, 0x66)],
       ['EnvironmentLogo', argb(ui.accent)],
       ['EnvironmentLayeredBackground', argb(ui.elevated, 0x4d)],
+      // Status bar: at rest it stays translucent black over the frame; while busy it takes a dark
+      // tint of a palette color (Dark uses purple / brown / blue) so the white text keeps contrast.
+      ['StatusBarBackgroundFillBuilding', argb(mix(sx.number, ui.deep, 0.35))],
+      ['StatusBarBackgroundFillDebugging', argb(mix(status.error, ui.deep, 0.4))],
+      ['StatusBarBackgroundFillSolutionLoading', argb(ui.selection)],
+      ['StatusBarTextFillRest', argb(text.fg)],
+      ['StatusBarTextFillBuilding', argb(text.fgBright)],
+      ['StatusBarTextFillDebugging', argb(text.fgBright)],
+      ['StatusBarTextFillSolutionLoading', argb(text.fgBright)],
+    ]],
+    // CodeLens ("3 references") above members, and its popups. Dark uses gray #999999 / #424245.
+    ['CodeSense', '{fc88969a-cbed-4940-8f48-142a503e2381}', [
+      ['IndicatorText', ...fg(sx.comment)],
+      ['IndicatorTextHovered', ...fg(ui.accent)],
+      ['IndicatorTextDisabled', ...fg(text.lineNumber)],
+      ['IndicatorSeparator', ...fg(text.lineNumber)],
+      ['IndicatorTextSelected', ...fg(text.fg)],
+    ]],
+    ['CodeSenseControls', '{de7b1121-99a4-4708-aedf-15f40c9b332f}', [
+      ['Popup', argb(ui.elevated), argb(text.fg)],
+      ['PopupBorder', argb(ui.border)],
+      ['PopupSelected', argb(ui.selection)],
+      ['PopupSelectedInactive', argb(ui.surface), argb(text.fg)],
+      ['PopupHover', argb(ui.selection)],
+      ['BodyText', argb(text.fg)],
+      ['TextHover', argb(text.fgBright)],
+      ['ItemHoverText', argb(text.fgBright)],
+      ['SubduedText', argb(text.muted)],
+      ['GrayText', argb(text.muted)],
+      ['GrayTextHover', argb(text.fg)],
+      ['HeaderText', argb(text.muted)],
+      ['SubduedBorder', argb(ui.border)],
+      ['ActionLink', argb(ui.accent)],
+      ['ActionLinkItem', null, argb(ui.accent)],
+      ['ActionLinkItemHover', null, argb(text.icon)],
+      ['DiffViewHighlight', argb(ui.selection)],
     ]],
     ['Environment', '{624ed9c3-bdfd-41fa-96c3-7c824ea32e3d}', [
       ['Window', argb(ui.bg)],

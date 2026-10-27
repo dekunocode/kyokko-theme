@@ -51,6 +51,57 @@
       <Color Name="TextFillTertiary">
         <Background Type="CT_RAW" Source="FF8AA3B6" />
       </Color>
+      <Color Name="ControlFillDefault">
+        <Background Type="CT_RAW" Source="0FD4E4EC" />
+      </Color>
+      <Color Name="ControlFillSecondary">
+        <Background Type="CT_RAW" Source="15D4E4EC" />
+      </Color>
+      <Color Name="ControlFillTertiary">
+        <Background Type="CT_RAW" Source="08D4E4EC" />
+      </Color>
+      <Color Name="ControlFillQuaternary">
+        <Background Type="CT_RAW" Source="0FD4E4EC" />
+      </Color>
+      <Color Name="ControlFillDisabled">
+        <Background Type="CT_RAW" Source="0BD4E4EC" />
+      </Color>
+      <Color Name="ControlAltFillTertiary">
+        <Background Type="CT_RAW" Source="0BD4E4EC" />
+      </Color>
+      <Color Name="ControlAltFillQuaternary">
+        <Background Type="CT_RAW" Source="12D4E4EC" />
+      </Color>
+      <Color Name="SubtleFillSecondary">
+        <Background Type="CT_RAW" Source="0FD4E4EC" />
+      </Color>
+      <Color Name="SubtleFillTertiary">
+        <Background Type="CT_RAW" Source="0BD4E4EC" />
+      </Color>
+      <Color Name="CardBackgroundFillDefault">
+        <Background Type="CT_RAW" Source="0DD4E4EC" />
+      </Color>
+      <Color Name="CardBackgroundFillSecondary">
+        <Background Type="CT_RAW" Source="08D4E4EC" />
+      </Color>
+      <Color Name="CardBackgroundFillTertiary">
+        <Background Type="CT_RAW" Source="12D4E4EC" />
+      </Color>
+      <Color Name="LayerFillDefault">
+        <Background Type="CT_RAW" Source="4D1C3048" />
+      </Color>
+      <Color Name="LayerFillAlt">
+        <Background Type="CT_RAW" Source="0ED4E4EC" />
+      </Color>
+      <Color Name="ControlStrokeDefault">
+        <Background Type="CT_RAW" Source="12D4E4EC" />
+      </Color>
+      <Color Name="ControlStrokeSecondary">
+        <Background Type="CT_RAW" Source="12D4E4EC" />
+      </Color>
+      <Color Name="DividerStrokeDefault">
+        <Background Type="CT_RAW" Source="15D4E4EC" />
+      </Color>
     </Category>
     <Category Name="ShellInternal" GUID="{5af241b7-5627-4d12-bfb1-2b67d11127d7}">
       <Color Name="EnvironmentBackground">
@@ -88,6 +139,99 @@
       </Color>
       <Color Name="EnvironmentLayeredBackground">
         <Background Type="CT_RAW" Source="4D1C3048" />
+      </Color>
+      <Color Name="StatusBarBackgroundFillBuilding">
+        <Background Type="CT_RAW" Source="FF48476B" />
+      </Color>
+      <Color Name="StatusBarBackgroundFillDebugging">
+        <Background Type="CT_RAW" Source="FF673D46" />
+      </Color>
+      <Color Name="StatusBarBackgroundFillSolutionLoading">
+        <Background Type="CT_RAW" Source="FF24425E" />
+      </Color>
+      <Color Name="StatusBarTextFillRest">
+        <Background Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
+      <Color Name="StatusBarTextFillBuilding">
+        <Background Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="StatusBarTextFillDebugging">
+        <Background Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="StatusBarTextFillSolutionLoading">
+        <Background Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+    </Category>
+    <Category Name="CodeSense" GUID="{fc88969a-cbed-4940-8f48-142a503e2381}">
+      <Color Name="IndicatorText">
+        <Foreground Type="CT_RAW" Source="FF7F9BB0" />
+      </Color>
+      <Color Name="IndicatorTextHovered">
+        <Foreground Type="CT_RAW" Source="FF5FD7E6" />
+      </Color>
+      <Color Name="IndicatorTextDisabled">
+        <Foreground Type="CT_RAW" Source="FF587489" />
+      </Color>
+      <Color Name="IndicatorSeparator">
+        <Foreground Type="CT_RAW" Source="FF587489" />
+      </Color>
+      <Color Name="IndicatorTextSelected">
+        <Foreground Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
+    </Category>
+    <Category Name="CodeSenseControls" GUID="{de7b1121-99a4-4708-aedf-15f40c9b332f}">
+      <Color Name="Popup">
+        <Background Type="CT_RAW" Source="FF1C3048" />
+        <Foreground Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
+      <Color Name="PopupBorder">
+        <Background Type="CT_RAW" Source="FF2A4560" />
+      </Color>
+      <Color Name="PopupSelected">
+        <Background Type="CT_RAW" Source="FF24425E" />
+      </Color>
+      <Color Name="PopupSelectedInactive">
+        <Background Type="CT_RAW" Source="FF16263B" />
+        <Foreground Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
+      <Color Name="PopupHover">
+        <Background Type="CT_RAW" Source="FF24425E" />
+      </Color>
+      <Color Name="BodyText">
+        <Background Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
+      <Color Name="TextHover">
+        <Background Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="ItemHoverText">
+        <Background Type="CT_RAW" Source="FFF2F8FB" />
+      </Color>
+      <Color Name="SubduedText">
+        <Background Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="GrayText">
+        <Background Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="GrayTextHover">
+        <Background Type="CT_RAW" Source="FFD4E4EC" />
+      </Color>
+      <Color Name="HeaderText">
+        <Background Type="CT_RAW" Source="FF8AA3B6" />
+      </Color>
+      <Color Name="SubduedBorder">
+        <Background Type="CT_RAW" Source="FF2A4560" />
+      </Color>
+      <Color Name="ActionLink">
+        <Background Type="CT_RAW" Source="FF5FD7E6" />
+      </Color>
+      <Color Name="ActionLinkItem">
+        <Foreground Type="CT_RAW" Source="FF5FD7E6" />
+      </Color>
+      <Color Name="ActionLinkItemHover">
+        <Foreground Type="CT_RAW" Source="FFA2D6FA" />
+      </Color>
+      <Color Name="DiffViewHighlight">
+        <Background Type="CT_RAW" Source="FF24425E" />
       </Color>
     </Category>
     <Category Name="Environment" GUID="{624ed9c3-bdfd-41fa-96c3-7c824ea32e3d}">
