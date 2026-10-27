@@ -422,45 +422,6 @@
       <Color Name="XAML Comment">
         <Foreground Type="CT_RAW" Source="FF7F9BB0" />
       </Color>
-      <Color Name="HTML Element Name">
-        <Foreground Type="CT_RAW" Source="FF56B6C6" />
-      </Color>
-      <Color Name="HTML Attribute Name">
-        <Foreground Type="CT_RAW" Source="FF9FD9D0" />
-      </Color>
-      <Color Name="HTML Attribute Value">
-        <Foreground Type="CT_RAW" Source="FFE6D9A2" />
-      </Color>
-      <Color Name="HTML Comment">
-        <Foreground Type="CT_RAW" Source="FF7F9BB0" />
-      </Color>
-      <Color Name="HTML Tag Delimiter">
-        <Foreground Type="CT_RAW" Source="FF9FB4C4" />
-      </Color>
-      <Color Name="HTML Operator">
-        <Foreground Type="CT_RAW" Source="FF9FC4D4" />
-      </Color>
-      <Color Name="HTML Entity">
-        <Foreground Type="CT_RAW" Source="FFF0C674" />
-      </Color>
-      <Color Name="CSS Keyword">
-        <Foreground Type="CT_RAW" Source="FF56B6C6" />
-      </Color>
-      <Color Name="CSS Comment">
-        <Foreground Type="CT_RAW" Source="FF7F9BB0" />
-      </Color>
-      <Color Name="CSS Selector">
-        <Foreground Type="CT_RAW" Source="FF7EE8A8" />
-      </Color>
-      <Color Name="CSS Property Name">
-        <Foreground Type="CT_RAW" Source="FF9FD9D0" />
-      </Color>
-      <Color Name="CSS Property Value">
-        <Foreground Type="CT_RAW" Source="FFE6D9A2" />
-      </Color>
-      <Color Name="CSS String Value">
-        <Foreground Type="CT_RAW" Source="FFE6D9A2" />
-      </Color>
     </Category>
     <Category Name="Text Editor MEF Items" GUID="{75a05685-00a8-4ded-bae5-e7a50bfa929a}">
       <Color Name="class name">
@@ -587,6 +548,48 @@
       </Color>
       <Color Name="urlformat">
         <Foreground Type="CT_RAW" Source="FF7CC4F8" />
+      </Color>
+      <Color Name="HTML Element Name">
+        <Foreground Type="CT_RAW" Source="FF56B6C6" />
+      </Color>
+      <Color Name="HTML Attribute Name">
+        <Foreground Type="CT_RAW" Source="FF9FD9D0" />
+      </Color>
+      <Color Name="HTML Attribute Value">
+        <Foreground Type="CT_RAW" Source="FFE6D9A2" />
+      </Color>
+      <Color Name="HTML Comment">
+        <Foreground Type="CT_RAW" Source="FF7F9BB0" />
+      </Color>
+      <Color Name="HTML Tag Delimiter">
+        <Foreground Type="CT_RAW" Source="FF9FB4C4" />
+      </Color>
+      <Color Name="HTML Operator">
+        <Foreground Type="CT_RAW" Source="FF9FC4D4" />
+      </Color>
+      <Color Name="HTML Entity">
+        <Foreground Type="CT_RAW" Source="FFF0C674" />
+      </Color>
+      <Color Name="CSS Keyword">
+        <Foreground Type="CT_RAW" Source="FF56B6C6" />
+      </Color>
+      <Color Name="CSS Comment">
+        <Foreground Type="CT_RAW" Source="FF7F9BB0" />
+      </Color>
+      <Color Name="CSS Selector">
+        <Foreground Type="CT_RAW" Source="FF7EE8A8" />
+      </Color>
+      <Color Name="CSS Property Name">
+        <Foreground Type="CT_RAW" Source="FF9FD9D0" />
+      </Color>
+      <Color Name="CSS Property Value">
+        <Foreground Type="CT_RAW" Source="FFE6D9A2" />
+      </Color>
+      <Color Name="CSS String Value">
+        <Foreground Type="CT_RAW" Source="FFE6D9A2" />
+      </Color>
+      <Color Name="JSON Property Name">
+        <Foreground Type="CT_RAW" Source="FF9FD9D0" />
       </Color>
       <Color Name="XAML Markup Extension Class">
         <Foreground Type="CT_RAW" Source="FF7CC4F8" />

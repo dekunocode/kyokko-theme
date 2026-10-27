@@ -378,20 +378,6 @@ function vstheme() {
       ['XAML Markup Extension Parameter Name', ...fg(sx.property)],
       ['XAML Markup Extension Parameter Value', ...fg(sx.string)],
       ['XAML Comment', ...fg(sx.comment)],
-      // HTML / CSS
-      ['HTML Element Name', ...fg(sx.keyword)],
-      ['HTML Attribute Name', ...fg(sx.property)],
-      ['HTML Attribute Value', ...fg(sx.string)],
-      ['HTML Comment', ...fg(sx.comment)],
-      ['HTML Tag Delimiter', ...fg(sx.punctuation)],
-      ['HTML Operator', ...fg(sx.operator)],
-      ['HTML Entity', ...fg(sx.special)],
-      ['CSS Keyword', ...fg(sx.keyword)],
-      ['CSS Comment', ...fg(sx.comment)],
-      ['CSS Selector', ...fg(sx.function)],
-      ['CSS Property Name', ...fg(sx.property)],
-      ['CSS Property Value', ...fg(sx.string)],
-      ['CSS String Value', ...fg(sx.string)],
     ]],
     // Roslyn (C#) semantic colors also live in this category. Unlike Zed, VS knows which
     // identifiers are properties, so members get the pale teal while locals stay white.
@@ -438,6 +424,22 @@ function vstheme() {
       // URLs such as xmlns="http://..." (VS default is its own blue). urlformat is a MEF
       // classification, so it has no effect in the language service category above.
       ['urlformat', ...fg(sx.type)],
+      // HTML / CSS / JSON (Web Tools editors) are MEF classifications too: listed under the
+      // language service category they had no effect, and CSS stayed plain white.
+      ['HTML Element Name', ...fg(sx.keyword)],
+      ['HTML Attribute Name', ...fg(sx.property)],
+      ['HTML Attribute Value', ...fg(sx.string)],
+      ['HTML Comment', ...fg(sx.comment)],
+      ['HTML Tag Delimiter', ...fg(sx.punctuation)],
+      ['HTML Operator', ...fg(sx.operator)],
+      ['HTML Entity', ...fg(sx.special)],
+      ['CSS Keyword', ...fg(sx.keyword)],
+      ['CSS Comment', ...fg(sx.comment)],
+      ['CSS Selector', ...fg(sx.function)],
+      ['CSS Property Name', ...fg(sx.property)],
+      ['CSS Property Value', ...fg(sx.string)],
+      ['CSS String Value', ...fg(sx.string)],
+      ['JSON Property Name', ...fg(sx.property)],
       // The newer XAML editor classifies markup extensions ({Binding ...}) under MEF items,
       // so set them here as well as in the language service category above.
       ['XAML Markup Extension Class', ...fg(sx.type)],
