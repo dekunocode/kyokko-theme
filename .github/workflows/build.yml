@@ -35,6 +35,22 @@ jobs:
             Get-Content build-errors.log | Where-Object { $_.Trim() } | Select-Object -First 30 | ForEach-Object { Write-Output "::error::$_" }
           }
 
+      - name: Verify the theme is packed
+        shell: pwsh
+        run: |
+          Add-Type -AssemblyName System.IO.Compression.FileSystem
+          $vsix = Get-ChildItem _built -Filter *.vsix | Select-Object -First 1
+          $zip = [IO.Compression.ZipFile]::OpenRead($vsix.FullName)
+          $names = $zip.Entries.FullName
+          Write-Output "::notice::VSIX contents: $($names -join ', ')"
+          $pkgdef = $zip.Entries | Where-Object { $_.FullName -like '*.pkgdef' }
+          if (-not $pkgdef) { Write-Output '::error::No .pkgdef in the VSIX'; exit 1 }
+          $text = (New-Object IO.StreamReader($pkgdef[0].Open())).ReadToEnd()
+          $sections = ([regex]::Matches($text, '(?m)^\[.*\]$')).Count
+          if ($text -notmatch 'Kyokko') { Write-Output '::error::pkgdef does not register the Kyokko theme'; exit 1 }
+          Write-Output "::notice::pkgdef $($pkgdef[0].FullName): $sections sections, $($text.Length) chars"
+          $zip.Dispose()
+
       - uses: actions/upload-artifact@v4
         with:
           name: Kyokko.vsix
