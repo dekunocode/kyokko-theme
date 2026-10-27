@@ -55,7 +55,9 @@ function zed() {
     'tab_bar.background': ui.surface,
     'tab.inactive_background': ui.surface,
     'tab.active_background': ui.bg,
-    'search.match_background': sx.number + '4d',
+    // Same as VS: find matches in a dark gold, the debugger's current line in a slightly stronger one
+    'search.match_background': mix(sx.special, ui.bg, 0.3),
+    'editor.debugger_active_line.background': mix(sx.special, ui.bg, 0.35),
     'panel.background': ui.surface,
     'panel.focused_border': ui.accent,
     'pane.focused_border': ui.accent,
@@ -77,7 +79,7 @@ function zed() {
     'editor.active_wrap_guide': ui.border,
     'editor.indent_guide': ui.guide,
     'editor.indent_guide_active': ui.scrollbar,
-    'editor.document_highlight.read_background': ui.selection + '99',
+    'editor.document_highlight.read_background': ui.elevated,
     'editor.document_highlight.write_background': ui.selection,
     'terminal.background': ui.bg,
     'terminal.foreground': text.fg,
@@ -101,6 +103,16 @@ function zed() {
     s[`${n}.background`] = c + '26';
     s[`${n}.border`] = c + '66';
   }
+  // Inlay hints sit on a surface box like VS's inline hints, not a tint of the comment color
+  s['hint.background'] = ui.surface;
+  s['hint'] = text.muted;
+
+  // Git gutter / diff hunks (VS: track changes and diff use the same status colors)
+  s['version_control.added'] = status.success;
+  s['version_control.modified'] = status.info;
+  s['version_control.deleted'] = status.error;
+  s['version_control.conflict_marker.ours'] = status.success + '33';
+  s['version_control.conflict_marker.theirs'] = status.info + '33';
 
   s.players = [
     { cursor: ui.accent, background: ui.accent, selection: ui.selection },
