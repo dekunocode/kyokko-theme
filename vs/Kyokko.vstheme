@@ -291,11 +291,11 @@
         <Foreground Type="CT_RAW" Source="FFD4E4EC" />
       </Color>
       <Color Name="Selected Text">
-        <Background Type="CT_RAW" Source="FF24425E" />
+        <Background Type="CT_RAW" Source="FF447BA6" />
         <Foreground Type="CT_RAW" Source="00000000" />
       </Color>
       <Color Name="Inactive Selected Text">
-        <Background Type="CT_RAW" Source="FF1C3048" />
+        <Background Type="CT_RAW" Source="FF304E6F" />
         <Foreground Type="CT_RAW" Source="00000000" />
       </Color>
       <Color Name="Line Number">
@@ -736,7 +736,7 @@
         <Foreground Type="CT_RAW" Source="FF8AA3B6" />
       </Color>
       <Color Name="MarkerFormatDefinition/FindHighlight">
-        <Background Type="CT_RAW" Source="FF534F43" />
+        <Background Type="CT_RAW" Source="FF645C48" />
         <Foreground Type="CT_RAW" Source="00000000" />
       </Color>
       <Color Name="MarkerFormatDefinition/ScopeHighlight">
@@ -802,75 +802,75 @@
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint (Enabled)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint (Warning)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint (Error)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint (Disabled)">
         <Foreground Type="CT_RAW" Source="FF587489" />
       </Color>
       <Color Name="Breakpoint - Temporary (Enabled)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Temporary (Warning)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Temporary (Error)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Temporary (Disabled)">
         <Foreground Type="CT_RAW" Source="FF587489" />
       </Color>
       <Color Name="Breakpoint - Dependent (Enabled)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Dependent (Warning)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Dependent (Error)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Dependent (Disabled)">
         <Foreground Type="CT_RAW" Source="FF587489" />
       </Color>
       <Color Name="Breakpoint - Mapped (Enabled)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Mapped (Warning)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Mapped (Error)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Mapped (Disabled)">
         <Foreground Type="CT_RAW" Source="FF587489" />
       </Color>
       <Color Name="Breakpoint - Advanced (Enabled)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Advanced (Warning)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Advanced (Error)">
-        <Background Type="CT_RAW" Source="FF6A404C" />
+        <Background Type="CT_RAW" Source="FF814954" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Breakpoint - Advanced (Disabled)">

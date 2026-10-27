@@ -225,6 +225,17 @@ function mix(hex, base, amount) {
     Math.round(ch(hex, i) * amount + ch(base, i) * (1 - amount)).toString(16).padStart(2, '0')).join('');
 }
 
+/**
+ * The color that, drawn at `alpha` opacity over `base`, shows as `target`. VS draws some editor
+ * highlights translucently (measured on screen: selection 40%, find matches and breakpoint lines 80%),
+ * so the theme stores a stronger color to land on the palette's tint.
+ */
+function under(target, alpha, base) {
+  const ch = (h, i) => parseInt(h.slice(i, i + 2), 16);
+  return '#' + [1, 3, 5].map((i) =>
+    Math.min(255, Math.max(0, Math.round(ch(base, i) + (ch(target, i) - ch(base, i)) / alpha))).toString(16).padStart(2, '0')).join('');
+}
+
 function vstheme() {
   // [category, guid, [[colorName, background, foreground], ...]]  — B/F are AARRGGBB or null
   const fg = (color) => [null, argb(color)];
@@ -243,7 +254,7 @@ function vstheme() {
     ['Track reverted changes', argb(status.info)],
   ];
   // Breakpoint glyph/line colors under the names the Dark theme defines
-  const bpLine = argb(mix(status.error, ui.bg, 0.4));
+  const bpLine = argb(under(mix(status.error, ui.bg, 0.4), 0.8, ui.bg));
   const breakpoints = [];
   for (const kind of ['', ' - Temporary', ' - Dependent', ' - Mapped', ' - Advanced']) {
     for (const state of ['Enabled', 'Warning', 'Error']) breakpoints.push([`Breakpoint${kind} (${state})`, bpLine, argb(text.fgBright)]);
@@ -367,8 +378,9 @@ function vstheme() {
     ]],
     ['Text Editor Text Manager Items', '{58e96763-1d3b-4e05-b6ba-ff7115fd0b7b}', [
       ['Plain Text', argb(ui.bg), argb(text.fg)],
-      ['Selected Text', argb(ui.selection), NONE],
-      ['Inactive Selected Text', argb(ui.elevated), NONE],
+      // Drawn at 40%: these land on ui.selection / ui.elevated
+      ['Selected Text', argb(under(ui.selection, 0.4, ui.bg)), NONE],
+      ['Inactive Selected Text', argb(under(ui.elevated, 0.4, ui.bg)), NONE],
       ['Line Number', argb(ui.bg), argb(text.lineNumber)],
       ['Selected Line Number', null, argb(ui.accent)],
       ['Visible Whitespace', null, argb(ui.border)],
@@ -523,7 +535,7 @@ function vstheme() {
       // States: squiggles, find/selection highlights, diff, change tracking. Dark uses unrelated
       // hues here (cyan compiler errors, green warnings, brown find matches).
       ...squiggles,
-      ['MarkerFormatDefinition/FindHighlight', argb(mix(sx.special, ui.bg, 0.3)), NONE],
+      ['MarkerFormatDefinition/FindHighlight', argb(under(mix(sx.special, ui.bg, 0.3), 0.8, ui.bg)), NONE],
       ['MarkerFormatDefinition/ScopeHighlight', argb(ui.surface)],
       ['MarkerFormatDefinition/SelectedTextInScrollBar', argb(text.muted)],
       ['MarkerFormatDefinition/BookmarkInScrollBar', argb(text.muted)],
