@@ -1,3 +1,5 @@
+English | [日本語](README.ja.md)
+
 # Kyokko Theme
 
 **Kyokko** (極光, *kyokkō*, "aurora") is a calm navy dark theme lit by aurora cyan and green.
@@ -66,7 +68,7 @@ The Marketplace page is `vs/marketplace/overview.md` with the screenshots next t
 
 `vscode/` is a VS Code extension (`dekunocode.kyokko-theme`): `package.json`, the Marketplace page `README.md` with its screenshots in `images/`, `CHANGELOG.md`, and the generated `themes/kyokko-color-theme.json`, `LICENSE` and `icon.png` (copied from `vs/Resources/Icon.png`).
 
-- To try it, run `code --extensionDevelopmentPath=<repo>scode` and choose **Kyokko** in **Preferences: Color Theme**.
+- To try it, run `code --extensionDevelopmentPath=<repo>\vscode` and choose **Kyokko** in **Preferences: Color Theme**.
 - To build the `.vsix` (Node.js 18+; CI builds it on every push too):
 
   ```powershell
