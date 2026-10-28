@@ -15,12 +15,12 @@
 | Visual Studio 2026 | [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.KyokkoTheme) | `vs/` |
 | Zed | Extension ready (submission to the Zed registry planned) | `zed/` |
 | Windows Terminal | Working | `themes/windows-terminal/kyokko.json` |
-| VS Code | Extension ready (Marketplace release planned) | `vscode/` |
+| VS Code | [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.kyokko-theme) | `vscode/` |
 
 ## Install
 
 - **Visual Studio 2026**: install **Kyokko Theme** from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.KyokkoTheme) (or **Extensions > Manage Extensions**, search for "Kyokko"), restart Visual Studio, then choose **Tools > Theme > Kyokko**.
-- **VS Code**: install `kyokko-theme-1.0.0.vsix` with **Extensions: Install from VSIX...** (see [below](#vs-code)), then choose **Kyokko** with **Preferences: Color Theme** (`Ctrl+K Ctrl+T`).
+- **VS Code**: install **Kyokko Theme** from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.kyokko-theme) (or search for "Kyokko" in the Extensions view), then choose **Kyokko** with **Preferences: Color Theme** (`Ctrl+K Ctrl+T`).
 - **Zed** and **Windows Terminal**: see [below](#zed).
 
 ## Palette
