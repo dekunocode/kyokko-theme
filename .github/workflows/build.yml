@@ -22,6 +22,15 @@ jobs:
       - name: Check generated theme files are up to date
         run: node scripts/build.mjs --check
 
+      - name: Package the VS Code extension
+        working-directory: vscode
+        run: npx --yes @vscode/vsce package
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: kyokko-theme-vscode.vsix
+          path: vscode/*.vsix
+
       - uses: microsoft/setup-msbuild@v3
 
       - name: Build VSIX

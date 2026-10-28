@@ -1,0 +1,44 @@
+{
+  "name": "kyokko-theme",
+  "displayName": "Kyokko Theme",
+  "description": "A calm navy dark theme lit by aurora cyan and green.",
+  "version": "1.0.0",
+  "publisher": "dekunocode",
+  "license": "MIT",
+  "icon": "icon.png",
+  "galleryBanner": {
+    "color": "#0f1c2e",
+    "theme": "dark"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dekunocode/kyokko-theme.git",
+    "directory": "vscode"
+  },
+  "homepage": "https://github.com/dekunocode/kyokko-theme",
+  "bugs": {
+    "url": "https://github.com/dekunocode/kyokko-theme/issues"
+  },
+  "engines": {
+    "vscode": "^1.141.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "keywords": [
+    "theme",
+    "dark",
+    "navy",
+    "aurora",
+    "kyokko"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "Kyokko",
+        "uiTheme": "vs-dark",
+        "path": "./themes/kyokko-color-theme.json"
+      }
+    ]
+  }
+}

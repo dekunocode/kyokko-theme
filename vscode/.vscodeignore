@@ -1,0 +1,3 @@
+# The README's screenshots are served from GitHub, so keep them out of the .vsix
+images/**
+*.vsix

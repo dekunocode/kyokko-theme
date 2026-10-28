@@ -8,18 +8,19 @@
 - Cyan keywords, green functions, sky-blue types, sand-colored strings, lilac numbers
 - Comments in plain (non-italic) blue-gray, so Japanese comments stay readable
 - Every code color is 5.9:1 or higher against the background (WCAG AA)
-- In Visual Studio, the whole IDE is navy (no gray panels), and errors, warnings, find matches and the debugger's current line keep their usual meaning in dark tints
+- In Visual Studio and VS Code, the whole IDE is navy (no gray panels), and errors, warnings, find matches and the debugger's current line keep their usual meaning in dark tints
 
 | Target | Status | File |
 | --- | --- | --- |
 | Visual Studio 2026 | [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.KyokkoTheme) | `vs/` |
 | Zed | Extension ready (submission to the Zed registry planned) | `zed/` |
 | Windows Terminal | Working | `themes/windows-terminal/kyokko.json` |
-| VS Code | Planned | |
+| VS Code | Extension ready (Marketplace release planned) | `vscode/` |
 
 ## Install
 
 - **Visual Studio 2026**: install **Kyokko Theme** from the [Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.KyokkoTheme) (or **Extensions > Manage Extensions**, search for "Kyokko"), restart Visual Studio, then choose **Tools > Theme > Kyokko**.
+- **VS Code**: install `kyokko-theme-1.0.0.vsix` with **Extensions: Install from VSIX...** (see [below](#vs-code)), then choose **Kyokko** with **Preferences: Color Theme** (`Ctrl+K Ctrl+T`).
 - **Zed** and **Windows Terminal**: see [below](#zed).
 
 ## Palette
@@ -37,7 +38,7 @@
 `palette.json` is the single source of truth. Every theme file is generated from it:
 
 ```powershell
-node scripts/build.mjs          # regenerate zed/, themes/ and vs/Kyokko.vstheme, print a contrast report
+node scripts/build.mjs          # regenerate vs/Kyokko.vstheme, vscode/themes/, zed/ and themes/, print a contrast report
 node scripts/build.mjs --check  # fail if a generated file is out of date (CI runs this)
 ```
 
@@ -60,6 +61,28 @@ The Marketplace page is `vs/marketplace/overview.md` with the screenshots next t
 ```powershell
 & "C:\Program Files\Microsoft Visual Studio\18\Community\VSSDK\VisualStudioIntegration\Tools\Bin\VsixPublisher.exe" publish -payload vs\bin\Release\net48\Kyokko.vsix -publishManifest vs\publishManifest.json -personalAccessToken <token>
 ```
+
+### VS Code
+
+`vscode/` is a VS Code extension (`dekunocode.kyokko-theme`): `package.json`, the Marketplace page `README.md` with its screenshots in `images/`, `CHANGELOG.md`, and the generated `themes/kyokko-color-theme.json`, `LICENSE` and `icon.png` (copied from `vs/Resources/Icon.png`).
+
+- To try it, run `code --extensionDevelopmentPath=<repo>scode` and choose **Kyokko** in **Preferences: Color Theme**.
+- To build the `.vsix` (Node.js 18+; CI builds it on every push too):
+
+  ```powershell
+  cd vscode
+  npx @vscode/vsce package   # writes kyokko-theme-<version>.vsix
+  ```
+
+To publish to the Visual Studio Marketplace (publisher `dekunocode`), create a personal access token in Azure DevOps (**User settings > Personal access tokens**, **Organization: All accessible organizations**, **Scopes: Marketplace > Manage**), then:
+
+```powershell
+cd vscode
+npx @vscode/vsce login dekunocode      # paste the token when asked
+npx @vscode/vsce publish --packagePath kyokko-theme-1.0.0.vsix
+```
+
+Or upload the `.vsix` at [marketplace.visualstudio.com/manage](https://marketplace.visualstudio.com/manage/publishers/dekunocode) (**New extension > Visual Studio Code**), which needs no token. For a new release, bump `version` in `vscode/package.json`, add a `CHANGELOG.md` entry and package again.
 
 ### Zed
 
