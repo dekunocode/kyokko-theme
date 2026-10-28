@@ -13,7 +13,7 @@
 | Target | Status | File |
 | --- | --- | --- |
 | Visual Studio 2026 | [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.KyokkoTheme) | `vs/` |
-| Zed | Extension ready (submission to the Zed registry planned) | `zed/` |
+| Zed | Submitted to the Zed extension registry ([zed-industries/extensions#8157](https://github.com/zed-industries/extensions/pull/8157), in review) | `zed/` |
 | Windows Terminal | Working | `themes/windows-terminal/kyokko.json` |
 | VS Code | [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=dekunocode.kyokko-theme) | `vscode/` |
 
