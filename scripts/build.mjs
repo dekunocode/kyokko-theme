@@ -276,7 +276,8 @@ function vstheme() {
       ['SolidBackgroundFillSenary', argb(ui.border)],
       ['SurfaceBackgroundFillDefault', argb(ui.elevated)],
       ['CardStrokeDefaultSolid', argb(ui.deep)],
-      ['ControlSolidFillDefault', argb(ui.border)],
+      // ControlSolidFillDefault is left to the Dark fallback (#454545): a tinted value makes VS draw
+      // the toolbar and status bar icons in monochrome white, losing their green/blue/yellow accents.
       ['TextFillPrimary', argb(text.fg)],
       ['TextFillSecondary', argb(text.fg, 0xc8)],
       ['TextFillTertiary', argb(text.muted)],
