@@ -12,6 +12,9 @@ import { fileURLToPath } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const p = JSON.parse(readFileSync(join(root, 'palette.json'), 'utf8'));
 const { ui, text, syntax: sx, status, terminal: term } = p;
+// The debugger's paused line in Zed and VS Code, which keep the code colors on it: a dark shade of
+// gold (amber, not gray) on which every syntax color stays at 4.5:1 or more.
+const debuggerLine = mix(sx.special, '#000000', 0.22);
 
 // ---------------------------------------------------------------------------
 // Zed  (zed/themes/kyokko.json — zed/ is the Zed extension: extension.toml, LICENSE, themes/)
@@ -55,9 +58,9 @@ function zed() {
     'tab_bar.background': ui.surface,
     'tab.inactive_background': ui.surface,
     'tab.active_background': ui.bg,
-    // Same as VS: find matches in a dark gold, the debugger's current line in a slightly stronger one
+    // Same as VS: find matches in a dark gold; the debugger's current line in dark amber
     'search.match_background': mix(sx.special, ui.bg, 0.3),
-    'editor.debugger_active_line.background': mix(sx.special, ui.bg, 0.35),
+    'editor.debugger_active_line.background': debuggerLine,
     'panel.background': ui.surface,
     'panel.focused_border': ui.accent,
     'pane.focused_border': ui.accent,
@@ -1098,8 +1101,8 @@ function vscode() {
     'problemsWarningIcon.foreground': status.warning,
     'problemsInfoIcon.foreground': status.info,
 
-    // Debugging: the paused line is a dark gold like VS's current statement
-    'editor.stackFrameHighlightBackground': tint(findCurrent),
+    // Debugging: the paused line is dark amber, set apart from the find matches
+    'editor.stackFrameHighlightBackground': tint(debuggerLine),
     'editor.focusedStackFrameHighlightBackground': tint(mix(status.success, ui.bg, 0.3)),
     'editor.inlineValuesBackground': ui.surface,
     'editor.inlineValuesForeground': text.muted,

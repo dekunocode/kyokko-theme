@@ -447,7 +447,7 @@
     "problemsErrorIcon.foreground": "#f2777a",
     "problemsWarningIcon.foreground": "#f0c674",
     "problemsInfoIcon.foreground": "#7cc4f8",
-    "editor.stackFrameHighlightBackground": "#72674dcc",
+    "editor.stackFrameHighlightBackground": "#3f3015cc",
     "editor.focusedStackFrameHighlightBackground": "#38685ccc",
     "editor.inlineValuesBackground": "#16263b",
     "editor.inlineValuesForeground": "#8aa3b6",
