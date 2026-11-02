@@ -780,7 +780,7 @@
         <Foreground Type="CT_RAW" Source="FF2A4560" />
       </Color>
       <Color Name="Current Statement">
-        <Background Type="CT_RAW" Source="FF5E5847" />
+        <Background Type="CT_RAW" Source="FF836836" />
         <Foreground Type="CT_RAW" Source="FFF2F8FB" />
       </Color>
       <Color Name="Current Statement (new context)">

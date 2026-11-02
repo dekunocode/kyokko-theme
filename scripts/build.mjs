@@ -550,8 +550,10 @@ function vstheme() {
       ['deltadiff.add.word', argb(mix(status.success, ui.bg, 0.3)), argb(status.success)],
       ['deltadiff.overview.color', argb(ui.surface), argb(ui.border)],
       // Debugger: current statement and breakpoints keep their meaning (gold = here, red = stop)
-      // but as dark tints, so the code on those lines stays readable in light text.
-      ['Current Statement', argb(mix(sx.special, ui.bg, 0.35)), argb(text.fgBright)],
+      // but as dark tints, so the code on those lines stays readable in light text. The current
+      // statement is a shade of gold (mixed with black, not navy) so it reads as amber, not gray,
+      // and it is drawn at 80% like the find matches.
+      ['Current Statement', argb(under(mix(sx.special, '#000000', 0.45), 0.8, ui.bg)), argb(text.fgBright)],
       ['Current Statement (new context)', argb(mix(sx.string, ui.bg, 0.3)), argb(text.fgBright)],
       ['Current Statement (historical mode)', argb(mix(status.success, ui.bg, 0.3)), argb(text.fgBright)],
       ['RoslynActiveStatementTag', argb(ui.selection)],
