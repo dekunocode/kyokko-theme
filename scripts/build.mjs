@@ -621,6 +621,10 @@ function vscode() {
   const tint = (target, alpha = 0.8) => under(target, alpha, ui.bg) + Math.round(alpha * 255).toString(16).padStart(2, '0');
   const findMatch = mix(sx.special, ui.bg, 0.3);
   const findCurrent = mix(sx.special, ui.bg, 0.35);
+  // Filled buttons and badges: a deep aurora teal with white text. The bright accent with dark
+  // text measured well but its thin glyphs blurred into the cyan at badge and button sizes.
+  const accentFill = mix(ui.accent, ui.deep, 0.45);
+  const accentFillHover = mix(ui.accent, ui.deep, 0.5);
 
   const colors = {
     // Base
@@ -645,8 +649,8 @@ function vscode() {
     'toolbar.hoverBackground': ui.elevated,
     'toolbar.activeBackground': ui.selection,
     'progressBar.background': ui.accent,
-    'badge.background': ui.accent,
-    'badge.foreground': ui.deep,
+    'badge.background': accentFill,
+    'badge.foreground': text.fgBright,
     'profileBadge.background': ui.elevated,
     'profileBadge.foreground': text.fg,
 
@@ -680,8 +684,8 @@ function vscode() {
     'activityBar.activeBorder': ui.accent,
     'activityBar.border': ui.deep,
     'activityBar.dropBorder': ui.accent,
-    'activityBarBadge.background': ui.accent,
-    'activityBarBadge.foreground': ui.deep,
+    'activityBarBadge.background': accentFill,
+    'activityBarBadge.foreground': text.fgBright,
     'activityBarTop.foreground': text.fg,
     'activityBarTop.inactiveForeground': text.muted,
     'activityBarTop.activeBorder': ui.accent,
@@ -959,8 +963,8 @@ function vscode() {
     'panelTitle.activeBorder': ui.accent,
     'panelTitle.inactiveForeground': text.muted,
     'panelTitle.border': ui.border,
-    'panelTitleBadge.background': ui.accent,
-    'panelTitleBadge.foreground': ui.deep,
+    'panelTitleBadge.background': accentFill,
+    'panelTitleBadge.foreground': text.fgBright,
     'panelInput.border': ui.border,
     'panelSection.border': ui.border,
     'panelSection.dropBackground': ui.accent + '1f',
@@ -1059,9 +1063,9 @@ function vscode() {
     'radio.activeForeground': text.fgBright,
     'radio.inactiveBorder': ui.border,
     'radio.inactiveHoverBackground': ui.elevated,
-    'button.background': ui.accent,
-    'button.foreground': ui.deep,
-    'button.hoverBackground': mix(ui.accent, text.fgBright, 0.3),
+    'button.background': accentFill,
+    'button.foreground': text.fgBright,
+    'button.hoverBackground': accentFillHover,
     'button.border': '#00000000',
     'button.separator': ui.deep + '66',
     'button.secondaryBackground': ui.elevated,
@@ -1197,15 +1201,15 @@ function vscode() {
     'welcomePage.progress.foreground': ui.accent,
     'walkThrough.embeddedEditorBackground': ui.deep,
     'walkthrough.stepTitle.foreground': text.fgBright,
-    'extensionButton.background': ui.accent,
-    'extensionButton.foreground': ui.deep,
-    'extensionButton.hoverBackground': mix(ui.accent, text.fgBright, 0.3),
+    'extensionButton.background': accentFill,
+    'extensionButton.foreground': text.fgBright,
+    'extensionButton.hoverBackground': accentFillHover,
     'extensionButton.separator': ui.deep + '66',
-    'extensionButton.prominentBackground': ui.accent,
-    'extensionButton.prominentForeground': ui.deep,
-    'extensionButton.prominentHoverBackground': mix(ui.accent, text.fgBright, 0.3),
-    'extensionBadge.remoteBackground': ui.accent,
-    'extensionBadge.remoteForeground': ui.deep,
+    'extensionButton.prominentBackground': accentFill,
+    'extensionButton.prominentForeground': text.fgBright,
+    'extensionButton.prominentHoverBackground': accentFillHover,
+    'extensionBadge.remoteBackground': accentFill,
+    'extensionBadge.remoteForeground': text.fgBright,
     'extensionIcon.starForeground': sx.special,
     'extensionIcon.verifiedForeground': ui.accent,
     'extensionIcon.preReleaseForeground': sx.number,
